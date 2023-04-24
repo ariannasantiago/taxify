@@ -6,26 +6,27 @@ import java.util.List;
  * sprint5.Vehicle implements sprint5.IVehicle -- from vehicle comes taxi, shuttle etc
  * specific information about the vehicle, service info, pickup/dropoff, route, etc
  */
-public interface IVehicle {
+public interface IFleet {
 
     public int getId();
     public ILocation getLocation();
     public ILocation getDestination();
-    public List<IService> getService();
+    //public List<IService> getService();
     public IStatistics getStatistics();
+    public ITaxiCompany getCompany();
     public void setCompany(ITaxiCompany company);
-    public void pickService(IService service);
+    //public void pickService(IService service);
 
-   
-    public void startService();
+
+    //public void startService();
     
-    public void endService();
+    //public void endService();
    
     public void notifyArrivalAtPickupLocation();
     
     public void notifyArrivalAtDropoffLocation();
     public boolean isFree();
-    public VehicleStatus getStatus();
+    //public VehicleStatus getStatus();
     public void move();
 
     // new : add parameter to caclulate cost so that if the ride is shared, the billing is updated with the correct amount
@@ -36,11 +37,11 @@ public interface IVehicle {
     public String toString();
 
     // added methods: in vehicle to use in taxicompany to make easier checking for rideshare 
-    public int getDistanceFromPickUp(IService service);
-    public int getDistanceFromDropoff(IService service);
+    //public int getDistanceFromPickUp(IService service);
+    //public int getDistanceFromDropoff(IService service);
 
     // add this to keep track of the current service --> since there is now a list of services
-    public IService getClosestService();
+    //public IService getClosestService();
 
     
 }

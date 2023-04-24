@@ -7,12 +7,12 @@ import java.util.List;
 public class ApplicationSimulator implements IApplicationSimulator, IObserver {
     private ITaxiCompany company;
     private List<IUser> users;
-    private List<IVehicle> vehicles;
+    private List<IFleet> vehicles;
 
     /**
      *  constructor, takes in parameters company, list of users, and list of vehicles 
      */
-    public ApplicationSimulator(ITaxiCompany company, List<IUser> users, List<IVehicle> vehicles) {
+    public ApplicationSimulator(ITaxiCompany company, List<IUser> users, List<IFleet> vehicles) {
         this.company = company;
         this.users = users;
         this.vehicles = vehicles;
@@ -38,7 +38,7 @@ public class ApplicationSimulator implements IApplicationSimulator, IObserver {
     public void showStatistics() {
         System.out.println("\n" + this.company.getName() + " statistics \n");
 
-        for (IVehicle ve : this.vehicles){
+        for (IFleet ve : this.vehicles){
             IStatistics stats = ve.getStatistics();
             System.out.println("\n" + ve.getClass().getSimpleName() + " " +ve.getId() + " " + stats.getServices() + " services " + stats.getDistance() + " km. " + stats.getBilling() + " eur. " + stats.getReviews()+ " reviews. " + stats.getStars() + " stars. ");
         } 

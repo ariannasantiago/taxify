@@ -4,7 +4,7 @@ package sprint5;
  * class sprint5.Shuttle extends abstract class sprint5.Vehicle
  * shuttle specific information, including shuttle specific cost (different from taxi)
  */
-public class Shuttle extends Vehicle {
+public class Shuttle extends Fleet {
     
     public Shuttle(int id, ILocation location) {
         super(id, location);

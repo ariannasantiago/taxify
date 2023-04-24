@@ -49,18 +49,18 @@ public class TestProgram {
       //Declare a list of vehicles. Instantiate at least 10 vehicles (Taxis and Shuttles) and 
       //place them at random locations of the city map
       
-      List<IVehicle> vehicles = new ArrayList<IVehicle>();
+      List<IFleet> vehicles = new ArrayList<IFleet>();
 
-      IVehicle car1 = new Shuttle(1, ApplicationLibrary.randomLocation());
-      IVehicle car2 = new Taxi(2, ApplicationLibrary.randomLocation());
-      IVehicle car3 = new Taxi(3, ApplicationLibrary.randomLocation());
-      IVehicle car4 = new Taxi(4, ApplicationLibrary.randomLocation());
-      IVehicle car5 = new Shuttle(5, ApplicationLibrary.randomLocation());
-      IVehicle car6 = new Shuttle(6, ApplicationLibrary.randomLocation());
-      IVehicle car7 = new Shuttle(7, ApplicationLibrary.randomLocation());
-      IVehicle car8 = new Taxi(8, ApplicationLibrary.randomLocation());
-      IVehicle car9 = new Taxi(9, ApplicationLibrary.randomLocation());
-      IVehicle car10 = new Taxi(10, ApplicationLibrary.randomLocation());
+      IFleet car1 = new Shuttle(1, ApplicationLibrary.randomLocation());
+      IFleet car2 = new Taxi(2, ApplicationLibrary.randomLocation());
+      IFleet car3 = new Taxi(3, ApplicationLibrary.randomLocation());
+      IFleet car4 = new Taxi(4, ApplicationLibrary.randomLocation());
+      IFleet car5 = new Shuttle(5, ApplicationLibrary.randomLocation());
+      IFleet car6 = new Shuttle(6, ApplicationLibrary.randomLocation());
+      IFleet car7 = new Shuttle(7, ApplicationLibrary.randomLocation());
+      IFleet car8 = new Taxi(8, ApplicationLibrary.randomLocation());
+      IFleet car9 = new Taxi(9, ApplicationLibrary.randomLocation());
+      IFleet car10 = new Taxi(10, ApplicationLibrary.randomLocation());
 
       vehicles.add(car1);
       vehicles.add(car2);

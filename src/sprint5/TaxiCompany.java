@@ -10,7 +10,7 @@ import java.util.List;
 public class TaxiCompany implements ITaxiCompany, ISubject {
     private String name;
     private List<IUser> users;
-    private List<IVehicle> vehicles;
+    private List<IFleet> vehicles;
     //keep track of total users and vehicles 
     private int totalServices;
     private IObserver observer;
@@ -19,7 +19,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
     * constructor, takes in name of taxi comapany, list of users, and list of vehicles 
     initializes totalServices to inital 0
     **/
-    public TaxiCompany(String name, List<IUser> users, List<IVehicle> vehicles) {
+    public TaxiCompany(String name, List<IUser> users, List<IFleet> vehicles) {
         this.name = name;
         this.users = users;
         this.vehicles = vehicles;        
@@ -88,7 +88,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
 
 
             // determining "close" as manhattan distance of 2
-            for (IVehicle ve: this.vehicles){
+            for (IFleet ve: this.vehicles){
                 if (ve.getStatus() == VehicleStatus.SERVICE && ve.getDistanceFromPickUp(service) < distance_to_shared && ve.getDistanceFromPickUp(service) >= 2) {
                     distance_to_shared = (ve.getDistanceFromPickUp(service));
                     shared_vehicle = ve.getId();
@@ -107,7 +107,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
             // getting an index out of bounds error so tried to decrement index 
                 
     
-            IVehicle shared = this.vehicles.get(shared_vehicle);
+            IFleet shared = this.vehicles.get(shared_vehicle);
                                                                                 // this service needs to be charnged to current service 
             if (shared.getDistanceFromPickUp(service) < shared.getDistanceFromDropoff(shared.getClosestService())){
                 
@@ -160,7 +160,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
     /**
      * a vehicle arrives at the pickup location
      */
-    public void arrivedAtPickupLocation(IVehicle vehicle) {
+    public void arrivedAtPickupLocation(IFleet vehicle) {
         
         notifyObserver(String.format("%-8s",vehicle.getClass().getSimpleName()) + vehicle.getId() + " loads user " + vehicle.getClosestService().getUser().getId());
     }
@@ -169,7 +169,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
      /**
      *  a vehicle arrives at the drop-off location
      */
-    public void arrivedAtDropoffLocation(IVehicle vehicle) {
+    public void arrivedAtDropoffLocation(IFleet vehicle) {
         
         IService service = vehicle.getClosestService();   
         
@@ -215,7 +215,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
     private int findFreeVehicle() {
         int count = 0;
 
-        for (IVehicle ve : this.vehicles) {
+        for (IFleet ve : this.vehicles) {
             if (ve.isFree() == true){
                 return count;
             }
