@@ -11,6 +11,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
     private String name;
     private List<IUser> users;
     private List<IFleet> vehicles;
+
     //keep track of total users and vehicles 
     private int totalServices;
     private IObserver observer;

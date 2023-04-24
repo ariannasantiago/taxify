@@ -16,7 +16,7 @@ public abstract class Fleet implements IFleet {
     //new --> changed to a list isntead of a single instance
     //private List<IService> service;
     //private VehicleStatus status;
-    private ILocation location;
+    protected ILocation location;
     protected ILocation destination;
     private IStatistics statistics;
     protected List<ILocation> route;
@@ -106,6 +106,13 @@ public abstract class Fleet implements IFleet {
 //
 //    }
 
+    /**
+     * returns true if the status of the vehicle is "free" and false otherwise
+     */
+    public abstract boolean isFree();
+
+    public abstract void bookService(IService service);
+
 //    @Override
 //    /**
 //     * set destination to the service drop-off location, update the driving route,
@@ -118,6 +125,7 @@ public abstract class Fleet implements IFleet {
 //        //used get pickuplocation() as start, could alternatively be this.location
 //        this.route = setDrivingRouteToDestination(this.location, this.destination);
 //    }
+    public abstract void startService();
 
 //    @Override
 //    /**
@@ -160,16 +168,19 @@ public abstract class Fleet implements IFleet {
 //
 //    }
 //}
-    
-//    @Override
-//    /**
-//     * notifying the company that the vehicle is at the pickup location,
-//     * then start the service
-//     */
-//    public void notifyArrivalAtPickupLocation() {
-//        this.company.arrivedAtPickupLocation(this);
-//        this.startService();
-//    }
+    public abstract void endService();
+
+
+
+    @Override
+    /**
+     * notifying the company that the vehicle is at the pickup location,
+     * then start the service
+     */
+    public void notifyArrivalAtPickupLocation() {
+        this.company.arrivedAtPickupLocation(this);
+        this.startService();
+    }
         
     @Override
     /**
@@ -182,12 +193,6 @@ public abstract class Fleet implements IFleet {
         // this.calculateCost();
      }
 
-     abstract void endService();
-
-    /**
-     * returns true if the status of the vehicle is "free" and false otherwise
-     */
-    public abstract boolean isFree();
 
 
 //    @Override
@@ -198,51 +203,52 @@ public abstract class Fleet implements IFleet {
 //        return this.status;
 //    }
 
+    public abstract void move();
     
-    @Override
-    /**
-     * gets the next location from the driving route
-     */
-    public void move() {
-
-        // to do --> fix this for two cars
-        
-        this.location = this.route.get(0);  
-              
-        this.route.remove(0);
-
-
-
-        if (this.route.isEmpty()) {
-            // check types here
-            if (this.service.size() == 0) {
-                // the vehicle continues its random route
-
-                this.destination = ApplicationLibrary.randomLocation(this.location);
-                this.route = setDrivingRouteToDestination(this.location, this.destination);
-               
-
-            }
-            else {
-                
-                IService service = this.getClosestService();
-                // checks if the vehicle has arrived to a pickup or drop off location
-
-                ILocation origin = service.getPickupLocation();
-
-                ILocation destination = service.getDropoffLocation();
-
-                if (this.location.getX() == origin.getX() && this.location.getY() == origin.getY()) {
-
-                    notifyArrivalAtPickupLocation();
-
-                } else if (this.location.getX() == destination.getX() && this.location.getY() == destination.getY()) {
-
-                    notifyArrivalAtDropoffLocation();
-                }
-            }
-          }
-        }
+//    @Override
+//    /**
+//     * gets the next location from the driving route
+//     */
+//    public void move() {
+//
+//        // to do --> fix this for two cars
+//
+//        this.location = this.route.get(0);
+//
+//        this.route.remove(0);
+//
+//
+//
+//        if (this.route.isEmpty()) {
+//            // check types here
+//            if (this.service.size() == 0) {
+//                // the vehicle continues its random route
+//
+//                this.destination = ApplicationLibrary.randomLocation(this.location);
+//                this.route = setDrivingRouteToDestination(this.location, this.destination);
+//
+//
+//            }
+//            else {
+//
+//                IService service = this.getClosestService();
+//                // checks if the vehicle has arrived to a pickup or drop off location
+//
+//                ILocation origin = service.getPickupLocation();
+//
+//                ILocation destination = service.getDropoffLocation();
+//
+//                if (this.location.getX() == origin.getX() && this.location.getY() == origin.getY()) {
+//
+//                    notifyArrivalAtPickupLocation();
+//
+//                } else if (this.location.getX() == destination.getX() && this.location.getY() == destination.getY()) {
+//
+//                    notifyArrivalAtDropoffLocation();
+//                }
+//            }
+//          }
+//        }
 
     @Override
     /**

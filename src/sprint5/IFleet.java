@@ -15,17 +15,17 @@ public interface IFleet {
     public IStatistics getStatistics();
     public ITaxiCompany getCompany();
     public void setCompany(ITaxiCompany company);
-    //public void pickService(IService service);
 
 
-    //public void startService();
-    
-    //public void endService();
+    public boolean isFree();
+
+    public void bookService(IService service);
+    public void startService();
+    public void endService();
    
     public void notifyArrivalAtPickupLocation();
-    
     public void notifyArrivalAtDropoffLocation();
-    public boolean isFree();
+
     //public VehicleStatus getStatus();
     public void move();
 

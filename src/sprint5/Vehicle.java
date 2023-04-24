@@ -28,10 +28,11 @@ public class Vehicle extends Fleet{
         return this.service;
     }
 
+    @Override
     /**
      * pick a service, set destination to the service pickup location, and status to "pickup"
      */
-    public void pickService(IService service) {
+    public void bookService(IService service) {
 
         this.service.add(service);
         this.destination = service.getPickupLocation();
@@ -111,15 +112,14 @@ public class Vehicle extends Fleet{
     }
 
 
-    @Override
-    /**
-     * notifying the company that the vehicle is at the pickup location,
-     * then start the service
-     */
-    public void notifyArrivalAtPickupLocation() {
-        this.getCompany().arrivedAtPickupLocation(this);
-        this.startService();
-    }
+//    /**
+//     * notifying the company that the vehicle is at the pickup location,
+//     * then start the service
+//     */
+//    public void notifyArrivalAtPickupLocation() {
+//        this.getCompany().arrivedAtPickupLocation(this);
+//        this.startService();
+//    }
 
     public int getDistanceFromPickUp(IService service) {
         return Math.abs(this.getLocation().getX() -  service.getPickupLocation().getX()) + Math.abs(this.getLocation().getY() -  service.getPickupLocation().getY());
@@ -129,7 +129,6 @@ public class Vehicle extends Fleet{
         return Math.abs(this.getLocation().getX() - service.getDropoffLocation().getX()) + Math.abs(this.getLocation().getY() - service.getDropoffLocation().getY());
     }
 
-    @Override
     public IService getClosestService() {
         // returns the current and closest service that the vehicle is in (can be more than one)_
 
@@ -157,6 +156,51 @@ public class Vehicle extends Fleet{
         return null;
 
 
+    }
+
+    @Override
+    /**
+     * gets the next location from the driving route
+     */
+    public void move() {
+
+        // to do --> fix this for two cars
+
+        this.location = this.route.get(0);
+
+        this.route.remove(0);
+
+
+
+        if (this.route.isEmpty()) {
+            // check types here
+            if (this.service.size() == 0) {
+                // the vehicle continues its random route
+
+                this.destination = ApplicationLibrary.randomLocation(this.getLocation());
+                this.route = setDrivingRouteToDestination(this.getLocation(), this.getDestination());
+
+
+            }
+            else {
+
+                IService service = this.getClosestService();
+                // checks if the vehicle has arrived to a pickup or drop off location
+
+                ILocation origin = service.getPickupLocation();
+
+                ILocation destination = service.getDropoffLocation();
+
+                if (this.getLocation().getX() == origin.getX() && this.getLocation().getY() == origin.getY()) {
+
+                    notifyArrivalAtPickupLocation();
+
+                } else if (this.getLocation().getX() == destination.getX() && this.getLocation().getY() == destination.getY()) {
+
+                    notifyArrivalAtDropoffLocation();
+                }
+            }
+        }
     }
 
     @Override

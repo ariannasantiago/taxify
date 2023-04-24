@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="creting sprint5 repo">
+    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="separated methods from fleet into vehicle, still need to add macro and fix types">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/ApplicationSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ApplicationSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/ITaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ITaxiCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/IVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IFleet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Fleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Fleet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/IFleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IFleet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/Shuttle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Shuttle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/Taxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Taxi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/TestProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TestProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Fleet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -73,6 +71,7 @@
       <updated>1681998297773</updated>
       <workItem from="1681998300131" duration="3364000" />
       <workItem from="1682345688597" duration="4716000" />
+      <workItem from="1682354043090" duration="255000" />
     </task>
     <task id="LOCAL-00001" summary="creting sprint5 repo">
       <created>1681998815370</created>
