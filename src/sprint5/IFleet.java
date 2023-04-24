@@ -18,6 +18,8 @@ public interface IFleet {
 
 
     public boolean isFree();
+    public FleetStatus getStatus();
+
 
     public void bookService(IService service);
     public void startService();
@@ -26,7 +28,6 @@ public interface IFleet {
     public void notifyArrivalAtPickupLocation();
     public void notifyArrivalAtDropoffLocation();
 
-    //public VehicleStatus getStatus();
     public void move();
 
     // new : add parameter to caclulate cost so that if the ride is shared, the billing is updated with the correct amount
@@ -41,7 +42,8 @@ public interface IFleet {
     //public int getDistanceFromDropoff(IService service);
 
     // add this to keep track of the current service --> since there is now a list of services
-    //public IService getClosestService();
+    public IService getClosestService();
+
 
     
 }

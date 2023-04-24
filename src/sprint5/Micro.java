@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Micro extends Fleet{
 
     private IService service;
-    private MicroStatus status;
+    private FleetStatus status;
 
     /**
      * sprint5. Micro class constructor, takes in unique user ID and pickup location (x,y)
@@ -16,7 +16,8 @@ public class Micro extends Fleet{
     public Micro(int id, ILocation location) {
         super(id, location);
         this.service = service; // initialize the array list (it could only contain one)
-        this.status = MicroStatus.FREE;
+        //this.status = MicroStatus.FREE;
+        this.status = FleetStatus.FREE;
 
     }
 
@@ -26,20 +27,21 @@ public class Micro extends Fleet{
         return false;
     }
 
-    public MicroStatus getStatus() {
+    public FleetStatus getStatus() {
         return this.status;
     }
 
     @Override
     public void bookService(IService service) {
         this.service = service;
-        this.status = MicroStatus.BOOKED;
+        //this.status = MicroStatus.BOOKED;
+        this.status = FleetStatus.BOOKED;
 
     }
 
     @Override
     public void startService() {
-        this.status = MicroStatus.INRIDE;
+        this.status = FleetStatus.INRIDE;
 
         this.destination = this.service.getDropoffLocation();
         //used get pickuplocation() as start, could alternatively be this.location
@@ -52,7 +54,7 @@ public class Micro extends Fleet{
     public void endService() {
         // update vehicle statistics
 
-        IService service = this.getService(); // get the first and only object in this list
+        IService service = this.getClosestService(); // get the first and only object in this list
 
         this.getStatistics().updateBilling(this.calculateCost(service));
         this.getStatistics().updateDistance(service.calculateDistance());
@@ -69,7 +71,7 @@ public class Micro extends Fleet{
         // set service to null, and status to "free"
 
         this.service = null;
-        this.status = MicroStatus.FREE;
+        this.status = FleetStatus.FREE;
 
     }
 
@@ -97,7 +99,7 @@ public class Micro extends Fleet{
             }
             else {
 
-                IService service = this.getService();
+                IService service = this.getClosestService();
                 // checks if the vehicle has arrived to a drop off location
 
                 //ILocation origin = service.getPickupLocation();
@@ -121,11 +123,11 @@ public class Micro extends Fleet{
     @Override
     public String toString() {
         return this.getId() + " at " + this.getLocation() + " driving to " + this.getDestination() +
-                ((this.status == MicroStatus.FREE) ? " is free with path " + showDrivingRoute(this.route) :
-                        (this.status == MicroStatus.INRIDE) ? " driving themselves to destination" : "");    }
+                ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route) :
+                        (this.status == FleetStatus.INRIDE) ? " driving themselves to destination" : "");    }
 
-    public IService getService() {
+    public IService getClosestService() {
         return this.service;
-    }
+    } // only 1 service
 
 }

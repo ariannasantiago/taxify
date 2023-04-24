@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Vehicle extends Fleet{
     private List<IService> service;
-    private VehicleStatus status;
+    //private VehicleStatus status;
 
 
     /**
@@ -17,8 +17,8 @@ public class Vehicle extends Fleet{
     public Vehicle(int id, ILocation location) {
         super(id, location);
         this.service = new ArrayList<IService>(); // initialize the array list (it could only contain one)
-        this.status = VehicleStatus.FREE;
-
+        this.status = FleetStatus.FREE;
+        this.status = FleetStatus.FREE;
     }
 
     /**
@@ -37,7 +37,7 @@ public class Vehicle extends Fleet{
         this.service.add(service);
         this.destination = service.getPickupLocation();
         this.route = setDrivingRouteToDestination(this.getLocation(), this.getDestination());
-        this.status = VehicleStatus.PICKUP;
+        this.status = FleetStatus.PICKUP;
 
     }
 
@@ -46,18 +46,19 @@ public class Vehicle extends Fleet{
      * returns true if the status of the vehicle is "free" and false otherwise
      */
     public boolean isFree() {
-        if (this.status == VehicleStatus.FREE){
+        if (this.status == FleetStatus.FREE){
             return true;
         }
         return false;
     }
 
-    /**
-     * ADDED THIS: A getter method to get the status of the vehicle, before there was only a isFree() method
-     */
-    public VehicleStatus getStatus(){
-        return this.status;
-    }
+
+//    /**
+//     * ADDED THIS: A getter method to get the status of the vehicle, before there was only a isFree() method
+//     */
+//    public VehicleStatus getStatus(){
+//        return this.status;
+//    }
 
     /**
      * set destination to the service drop-off location, update the driving route,
@@ -65,7 +66,7 @@ public class Vehicle extends Fleet{
      */
     public void startService() {
         // need a method to get the current service -- since we made it an array list
-        this.status = VehicleStatus.SERVICE;
+        this.status = FleetStatus.SERVICE;
         this.destination = this.getClosestService().getDropoffLocation();
         //used get pickuplocation() as start, could alternatively be this.location
         this.route = setDrivingRouteToDestination(this.getLocation(), this.getDestination());
@@ -98,13 +99,13 @@ public class Vehicle extends Fleet{
 
         if (this.service.size() ==0){
             this.destination = ApplicationLibrary.randomLocation(this.getLocation());
-            this.status = VehicleStatus.FREE;
+            this.status = FleetStatus.FREE;
             this.route = setDrivingRouteToDestination(this.getLocation(), this.getDestination());
 
         }
         else{
             this.destination = this.getClosestService().getDropoffLocation();
-            this.status = VehicleStatus.SERVICE;
+            this.status = FleetStatus.SERVICE;
             this.route = setDrivingRouteToDestination(this.getLocation(), this.getDestination());
 
 
@@ -132,13 +133,13 @@ public class Vehicle extends Fleet{
     public IService getClosestService() {
         // returns the current and closest service that the vehicle is in (can be more than one)_
 
-        if (this.status == VehicleStatus.PICKUP){
+        if (this.status == FleetStatus.PICKUP){
             // return the most recently added service
             IService last_service = this.service.get(this.service.size() - 1);
             return last_service;
 
         }
-        else if (this.status == VehicleStatus.SERVICE){
+        else if (this.status == FleetStatus.SERVICE){
 
             IService service = null;
             int min = 1000000;
@@ -211,13 +212,13 @@ public class Vehicle extends Fleet{
 
         if (this.service.size()==1){
             return this.getId() + " at " + this.getLocation() + " driving to " + this.getDestination() +
-                    ((this.status == VehicleStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == VehicleStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service "));
+                    ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service "));
 
 
         }
         else{
             return this.getId() + " at " + this.getLocation() + " driving to " + this.getDestination() +
-                    ((this.status == VehicleStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == VehicleStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service ")) + " shared ride with user" ;
+                    ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service ")) + " shared ride with user" ;
 
 
 

@@ -90,7 +90,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
 
             // determining "close" as manhattan distance of 2
             for (IFleet ve: this.vehicles){
-                if (ve.getStatus() == VehicleStatus.SERVICE && ve.getDistanceFromPickUp(service) < distance_to_shared && ve.getDistanceFromPickUp(service) >= 2) {
+                if (ve.getStatus() == FleetStatus.SERVICE && ve.getDistanceFromPickUp(service) < distance_to_shared && ve.getDistanceFromPickUp(service) >= 2) {
                     distance_to_shared = (ve.getDistanceFromPickUp(service));
                     shared_vehicle = ve.getId();
                   }
@@ -109,7 +109,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
                 
     
             IFleet shared = this.vehicles.get(shared_vehicle);
-                                                                                // this service needs to be charnged to current service 
+            // this service needs to be charnged to current service
             if (shared.getDistanceFromPickUp(service) < shared.getDistanceFromDropoff(shared.getClosestService())){
                 
                   if (shared.getService().size() == 1){
@@ -174,7 +174,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
         
         IService service = vehicle.getClosestService();   
         
-        // check which service to return 
+        // check which service to return
 
 
         // fix this 

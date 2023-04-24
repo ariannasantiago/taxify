@@ -15,7 +15,7 @@ public abstract class Fleet implements IFleet {
     private ITaxiCompany company;
     //new --> changed to a list isntead of a single instance
     //private List<IService> service;
-    //private VehicleStatus status;
+    protected FleetStatus status;
     protected ILocation location;
     protected ILocation destination;
     private IStatistics statistics;
@@ -195,13 +195,13 @@ public abstract class Fleet implements IFleet {
 
 
 
-//    @Override
-//    /**
-//     * ADDED THIS: A getter method to get the status of the vehicle, before there was only a isFree() method
-//     */
-//    public VehicleStatus getStatus(){
-//        return this.status;
-//    }
+    @Override
+    /**
+     * ADDED THIS: A getter method to get the status of the vehicle, before there was only a isFree() method
+     */
+    public FleetStatus getStatus(){
+        return this.status;
+    }
 
     public abstract void move();
     
