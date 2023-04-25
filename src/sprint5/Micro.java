@@ -92,15 +92,16 @@ public class Micro extends Fleet{
      */
     public void move() {
 
-        // to do --> fix this for two cars
+        
+        if (!this.route.isEmpty()){
 
-        this.location = this.route.get(0);
-
-        this.route.remove(0);
-
+            this.location = this.route.get(0);
+    
+            this.route.remove(0);
+        }
 
         if (this.route.isEmpty()) {
-            if (this.service== null) {
+            if (this.service.size() == 0) {
                 // stays in place, do nothing
 
 //                this.destination = ApplicationLibrary.randomLocation(this.location);
@@ -138,6 +139,13 @@ public class Micro extends Fleet{
                         (this.status == FleetStatus.INRIDE) ? " driving themselves to destination" : "");    }
 
     public IService getClosestService() {
+
+        if (this.status == FleetStatus.FREE){
+            return null;
+        }
+       
+
+
         return this.service.get(0);
     } // only 1 service
 

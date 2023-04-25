@@ -167,9 +167,14 @@ public class Vehicle extends Fleet{
 
         // to do --> fix this for two cars
 
+        if (!this.route.isEmpty()){
+
+        
+
         this.location = this.route.get(0);
 
         this.route.remove(0);
+    }
 
 
 
