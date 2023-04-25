@@ -60,7 +60,13 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
 
         int userIndex = indexOfUserId(user);        
         int vehicleIndex = findFreeVehicle();
-        
+        boolean micro = false;
+
+        if (this.vehicles.get(vehicleIndex).getClass().getSimpleName() == "Micro"){
+            micro = true;
+        }
+
+
         // if there is a free vehicle, assign a random pickup and drop-off location to the new service
         // the distance between the pickup and the drop-off location should be at least 3 blocks
            
@@ -89,12 +95,15 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
 
 
             // determining "close" as manhattan distance of 2
+            //making sure it is not a micro vehicle 
+
             for (IFleet ve: this.vehicles){
-                if (ve.getStatus() == FleetStatus.SERVICE && ve.getDistanceFromPickUp(service) < distance_to_shared && ve.getDistanceFromPickUp(service) >= 2) {
+                if (!this.vehicles.get(vehicleIndex).getClass().getSimpleName().equals("Micro") && (ve.getStatus() == FleetStatus.SERVICE && ve.getDistanceFromPickUp(service) < distance_to_shared && ve.getDistanceFromPickUp(service) >= 2)) {
                     distance_to_shared = (ve.getDistanceFromPickUp(service));
                     shared_vehicle = ve.getId();
                   }
                 }
+            
 
 
 
@@ -113,7 +122,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
             if (shared.getDistanceFromPickUp(service) < shared.getDistanceFromDropoff(shared.getClosestService())){
                 
                   if (shared.getService().size() == 1){
-                    shared.pickService(service);
+                    shared.bookService(service);
                     service.setShared(true);
                   }  
              
@@ -130,7 +139,10 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
             }}
 
 
+
+
             this.users.get(userIndex).setService(true);
+
             
             // create a service with the user, the pickup and the drop-off location
 
@@ -138,7 +150,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
             
             // assign the new service to the vehicle
             
-            this.vehicles.get(vehicleIndex).pickService(not_shared_service);            
+            this.vehicles.get(vehicleIndex).bookService(not_shared_service);            
              
             notifyObserver("sprint5.User " + this.users.get(userIndex).getId() + " requests a service from " + service.toString() + ", the ride is assigned to " +
                            this.vehicles.get(vehicleIndex).getClass().getSimpleName() + " " + this.vehicles.get(vehicleIndex).getId() + " at location " +

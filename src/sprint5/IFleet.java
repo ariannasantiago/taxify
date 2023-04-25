@@ -11,7 +11,7 @@ public interface IFleet {
     public int getId();
     public ILocation getLocation();
     public ILocation getDestination();
-    //public List<IService> getService();
+    public List<IService> getService();
     public IStatistics getStatistics();
     public ITaxiCompany getCompany();
     public void setCompany(ITaxiCompany company);
@@ -39,7 +39,7 @@ public interface IFleet {
 
     // added methods: in vehicle to use in taxicompany to make easier checking for rideshare 
     public int getDistanceFromPickUp(IService service);
-    //public int getDistanceFromDropoff(IService service);
+    public int getDistanceFromDropoff(IService service);
 
     // add this to keep track of the current service --> since there is now a list of services
     public IService getClosestService();

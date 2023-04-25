@@ -339,41 +339,41 @@ public abstract class Fleet implements IFleet {
    public int getDistanceFromPickUp(IService service) {
        return Math.abs(this.location.getX() -  service.getPickupLocation().getX()) + Math.abs(this.location.getY() -  service.getPickupLocation().getY());
      }
-//
-//      @Override
-//      public int getDistanceFromDropoff(IService service) {
-//        return Math.abs(this.location.getX() - service.getDropoffLocation().getX()) + Math.abs(this.location.getY() - service.getDropoffLocation().getY());
-//      }
 
-//    @Override
-//    public IService getClosestService() {
-//        // returns the current and closest service that the vehicle is in (can be more than one)_
-//
-//        if (this.status == VehicleStatus.PICKUP){
-//            // return the most recently added service
-//            IService last_service = this.service.get(this.service.size() - 1);
-//            return last_service;
-//
-//        }
-//        else if (this.status == VehicleStatus.SERVICE){
-//
-//          IService service = null;
-//          int min = 1000000;
-//
-//          for (IService serv : this.service) {
-//
-//            if (this.getDistanceFromDropoff(serv)< min) {
-//              min = this.getDistanceFromDropoff(serv);
-//              service = serv;
-//            }
-//
-//          }
-//          return service;
-//        }
-//        return null;
-//
-//
-//      }
+     @Override
+     public int getDistanceFromDropoff(IService service) {
+       return Math.abs(this.location.getX() - service.getDropoffLocation().getX()) + Math.abs(this.location.getY() - service.getDropoffLocation().getY());
+     }
+
+   @Override
+   public IService getClosestService() {
+       // returns the current and closest service that the vehicle is in (can be more than one)_
+
+       if (this.status == FleetStatus.PICKUP){
+           // return the most recently added service
+           IService last_service = this.service.get(this.service.size() - 1);
+           return last_service;
+
+       }
+       else if (this.status == FleetStatus.SERVICE){
+
+         IService service = null;
+         int min = 1000000;
+
+         for (IService serv : this.service) {
+
+           if (this.getDistanceFromDropoff(serv)< min) {
+             min = this.getDistanceFromDropoff(serv);
+             service = serv;
+           }
+
+         }
+         return service;
+       }
+       return null;
+
+
+     }
     
 
 
