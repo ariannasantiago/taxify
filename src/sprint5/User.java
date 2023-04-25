@@ -48,6 +48,11 @@ public class User implements IUser {
     public void setService(boolean service) {
         this.service = service;
     }
+
+    @Override
+    public ILocation getLocation() {
+        return this.location;
+    }
     
     @Override
     public void requestService() {

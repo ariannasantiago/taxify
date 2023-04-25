@@ -14,7 +14,7 @@ public abstract class Fleet implements IFleet {
     private int id;
     private ITaxiCompany company;
     //new --> changed to a list isntead of a single instance
-    //private List<IService> service;
+    private List<IService> service;
     protected FleetStatus status;
     protected ILocation location;
     protected ILocation destination;
@@ -73,9 +73,11 @@ public abstract class Fleet implements IFleet {
 //     /**
 //     * getter method: returns service
 //     */
-//    public List<IService> getService() {
-//       return this.service;
-//    }
+
+    @Override
+    public List<IService> getService(){
+      return this.service;
+   }
     
     @Override
      /**
@@ -97,7 +99,7 @@ public abstract class Fleet implements IFleet {
 //     /**
 //     * pick a service, set destination to the service pickup location, and status to "pickup"
 //     */
-//    public void pickService(IService service) {
+    
 //
 //        this.service.add(service);
 //        this.destination = service.getPickupLocation();
@@ -266,7 +268,7 @@ public abstract class Fleet implements IFleet {
     }
     
 
-    @Override
+    
     /**
      * shows the route of the car in string format 
      */
@@ -333,10 +335,10 @@ public abstract class Fleet implements IFleet {
         return route;
     }       
 
-//    @Override
-//    public int getDistanceFromPickUp(IService service) {
-//        return Math.abs(this.location.getX() -  service.getPickupLocation().getX()) + Math.abs(this.location.getY() -  service.getPickupLocation().getY());
-//      }
+   @Override
+   public int getDistanceFromPickUp(IService service) {
+       return Math.abs(this.location.getX() -  service.getPickupLocation().getX()) + Math.abs(this.location.getY() -  service.getPickupLocation().getY());
+     }
 //
 //      @Override
 //      public int getDistanceFromDropoff(IService service) {

@@ -1,10 +1,12 @@
 package sprint5;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class Micro extends Fleet{
 
-    private IService service;
+    private List<IService> service;
     private FleetStatus status;
 
     /**
@@ -15,10 +17,19 @@ public class Micro extends Fleet{
      */
     public Micro(int id, ILocation location) {
         super(id, location);
-        this.service = service; // initialize the array list (it could only contain one)
+         // initialize the array list (it could only contain one)
         //this.status = MicroStatus.FREE;
         this.status = FleetStatus.FREE;
+        this.service = new ArrayList<IService>(1);
 
+    }
+
+    /**
+     * getter method: returns service
+     */
+    @Override 
+    public List<IService> getService() {
+        return this.service;
     }
 
 
@@ -33,7 +44,7 @@ public class Micro extends Fleet{
 
     @Override
     public void bookService(IService service) {
-        this.service = service;
+        this.service.add(service);
         //this.status = MicroStatus.BOOKED;
         this.status = FleetStatus.BOOKED;
 
@@ -43,7 +54,7 @@ public class Micro extends Fleet{
     public void startService() {
         this.status = FleetStatus.INRIDE;
 
-        this.destination = this.service.getDropoffLocation();
+        this.destination = this.service.get(0).getDropoffLocation();
         //used get pickuplocation() as start, could alternatively be this.location
 
         // does have a route --> account for the fact that it is in use
@@ -127,7 +138,7 @@ public class Micro extends Fleet{
                         (this.status == FleetStatus.INRIDE) ? " driving themselves to destination" : "");    }
 
     public IService getClosestService() {
-        return this.service;
+        return this.service.get(0);
     } // only 1 service
 
 }

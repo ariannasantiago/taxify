@@ -38,7 +38,7 @@ public interface IFleet {
     public String toString();
 
     // added methods: in vehicle to use in taxicompany to make easier checking for rideshare 
-    //public int getDistanceFromPickUp(IService service);
+    public int getDistanceFromPickUp(IService service);
     //public int getDistanceFromDropoff(IService service);
 
     // add this to keep track of the current service --> since there is now a list of services

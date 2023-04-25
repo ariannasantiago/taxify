@@ -10,6 +10,7 @@ public interface IUser {
     public String getFirstName();
     public String getLastName();
     public boolean getService();
+    public ILocation getLocation();
     public void setService(boolean service);
     public void requestService();
     public void rateService(IService service);
