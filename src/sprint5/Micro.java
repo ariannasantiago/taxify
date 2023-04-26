@@ -113,9 +113,10 @@ public class Micro extends Fleet {
 
     @Override
     public String toString() {
-        return this.getId() + " at " + this.getLocation() + " driving to " + this.getDestination() +
-                ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route) :
-                        (this.status == FleetStatus.INRIDE) ? " driving themselves to destination" : "");
+        return (this.getId() + " at " + this.getLocation() +
+                ((this.status == FleetStatus.FREE) ? " is free"
+                        : (this.status == FleetStatus.INRIDE) ? " driving themselves to destination" + this.getDestination()
+                        : " is booked"));
     }
 
     public IService getClosestService() {

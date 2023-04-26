@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram">
+    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="TaxiCompany logic to find closest free vehicle, Shuttle and Taxi toString() to print number of active services,">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Shuttle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Shuttle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Taxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Taxi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Fleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Fleet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Micro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Micro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682522130358</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="TaxiCompany logic to find closest free vehicle, Shuttle and Taxi toString() to print number of active services,">
+      <created>1682524482021</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682524482021</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +185,8 @@
     <MESSAGE value="merged in from liza's branch, moved method implementation to Fleet class, linted code" />
     <MESSAGE value="Bike and Scooter Classes added (and to tet program), fixed Micro.move() logic, fixed ApplicationSim.showStatistics() formatting" />
     <MESSAGE value="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram" />
+    <MESSAGE value="TaxiCompany logic to find closest free vehicle, Shuttle and Taxi toString() to print number of active services," />
+    <option name="LAST_COMMIT_MESSAGE" value="TaxiCompany logic to find closest free vehicle, Shuttle and Taxi toString() to print number of active services," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

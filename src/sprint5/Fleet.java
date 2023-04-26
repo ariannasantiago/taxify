@@ -272,7 +272,7 @@ public abstract class Fleet implements IFleet {
         String s = "";
 
         for (ILocation l : route)
-            s = s + l.toString() + " ";
+            s = s + l.toString() + ", ";
 
         return s;
     }

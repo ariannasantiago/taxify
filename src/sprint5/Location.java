@@ -30,7 +30,7 @@ public class Location implements ILocation {
     // to string method returns location as an ordered pair of points
     @Override
     public String toString() {
-        return "Location: (" + x_cord + "," + y_cord + ").";
+        return "(" + x_cord + "," + y_cord + ")";
     }
 
 }
