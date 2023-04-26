@@ -101,7 +101,7 @@ public class Micro extends Fleet {
 
 
         if (this.route.isEmpty()) {
-            if (this.service == null) {
+            if (this.service.size() == 0) {
                 // stays in place, do nothing
 
 //                this.destination = ApplicationLibrary.randomLocation(this.location);

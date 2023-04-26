@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="merged in from liza's branch, moved method implementation to Fleet class, linted code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/ApplicationSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ApplicationSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Fleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Fleet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/FleetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/FleetStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/IFleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IFleet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/ILocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ILocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/IObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/IStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/ITaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ITaxiCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/IUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/Micro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Micro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Shuttle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Shuttle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Statistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Taxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Taxi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/TestProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TestProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,25 +32,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/ariannasantiago/IdeaProjects/TaxifySprint5/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ariannasantiago/IdeaProjects/TaxifySprint5/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
