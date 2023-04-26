@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Micro extends Fleet{
+public class Micro extends Fleet {
 
     private List<IService> service;
     private FleetStatus status;
@@ -17,7 +17,7 @@ public class Micro extends Fleet{
      */
     public Micro(int id, ILocation location) {
         super(id, location);
-         // initialize the array list (it could only contain one)
+        // initialize the array list (it could only contain one)
         //this.status = MicroStatus.FREE;
         this.status = FleetStatus.FREE;
         this.service = new ArrayList<IService>(1);
@@ -27,7 +27,7 @@ public class Micro extends Fleet{
     /**
      * getter method: returns service
      */
-    @Override 
+    @Override
     public List<IService> getService() {
         return this.service;
     }
@@ -94,21 +94,21 @@ public class Micro extends Fleet{
 
         // to do --> fix this for two cars
 
-        this.location = this.route.get(0);
-
-        this.route.remove(0);
+        if (!this.route.isEmpty()) {
+            this.location = this.route.get(0);
+            this.route.remove(0);
+        }
 
 
         if (this.route.isEmpty()) {
-            if (this.service== null) {
+            if (this.service == null) {
                 // stays in place, do nothing
 
 //                this.destination = ApplicationLibrary.randomLocation(this.location);
 //                this.route = setDrivingRouteToDestination(this.location, this.destination);
 
 
-            }
-            else {
+            } else {
 
                 IService service = this.getClosestService();
                 // checks if the vehicle has arrived to a drop off location
@@ -130,15 +130,18 @@ public class Micro extends Fleet{
     }
 
 
-
     @Override
     public String toString() {
         return this.getId() + " at " + this.getLocation() + " driving to " + this.getDestination() +
                 ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route) :
-                        (this.status == FleetStatus.INRIDE) ? " driving themselves to destination" : "");    }
+                        (this.status == FleetStatus.INRIDE) ? " driving themselves to destination" : "");
+    }
 
     public IService getClosestService() {
-        return this.service.get(0);
+        if (this.getStatus() == FleetStatus.FREE)
+            return null;
+        else
+            return this.service.get(0);
     } // only 1 service
 
 }

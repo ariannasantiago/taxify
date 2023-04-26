@@ -6,15 +6,19 @@ package sprint5;
 
 public interface ITaxiCompany {
 
-    public String getName();    
-    public int getTotalServices();
-    public boolean provideService(int user);
-    public void arrivedAtPickupLocation(IFleet vehicle);
-    public void arrivedAtDropoffLocation(IFleet vehicle);
+    String getName();
 
-        
-    }
+    int getTotalServices();
 
-    // more methods will be declared in upcoming sprints
+    boolean provideService(int user);
+
+    void arrivedAtPickupLocation(IFleet vehicle);
+
+    void arrivedAtDropoffLocation(IFleet vehicle);
+
+
+}
+
+// more methods will be declared in upcoming sprints
 
 

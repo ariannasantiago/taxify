@@ -8,42 +8,53 @@ import java.util.List;
  */
 public interface IFleet {
 
-    public int getId();
-    public ILocation getLocation();
-    public ILocation getDestination();
-    //public List<IService> getService();
-    public IStatistics getStatistics();
-    public ITaxiCompany getCompany();
-    public void setCompany(ITaxiCompany company);
+    int getId();
+
+    ILocation getLocation();
+
+    ILocation getDestination();
+
+    List<IService> getService();
+
+    IStatistics getStatistics();
+
+    ITaxiCompany getCompany();
+
+    void setCompany(ITaxiCompany company);
 
 
-    public boolean isFree();
-    public FleetStatus getStatus();
+    boolean isFree();
+
+    FleetStatus getStatus();
 
 
-    public void bookService(IService service);
-    public void startService();
-    public void endService();
-   
-    public void notifyArrivalAtPickupLocation();
-    public void notifyArrivalAtDropoffLocation();
+    void bookService(IService service);
 
-    public void move();
+    void startService();
+
+    void endService();
+
+    void notifyArrivalAtPickupLocation();
+
+    void notifyArrivalAtDropoffLocation();
+
+    void move();
 
     // new : add parameter to caclulate cost so that if the ride is shared, the billing is updated with the correct amount
-    public int calculateCost(IService service);
+    int calculateCost(IService service);
 
     //updated this ebcause it was showing incorrect route when vehicles werent free
-    public String showDrivingRoute(List<ILocation> route);
-    public String toString();
+    String showDrivingRoute(List<ILocation> route);
+
+    String toString();
 
     // added methods: in vehicle to use in taxicompany to make easier checking for rideshare 
-    public int getDistanceFromPickUp(IService service);
-    //public int getDistanceFromDropoff(IService service);
+    int getDistanceFromPickUp(IService service);
+
+    int getDistanceFromDropoff(IService service);
 
     // add this to keep track of the current service --> since there is now a list of services
-    public IService getClosestService();
+    IService getClosestService();
 
 
-    
 }

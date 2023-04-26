@@ -11,13 +11,12 @@ public class Vehicle extends Fleet{
     /**
      * sprint5.Vehicle class constructor, takes in unique user ID and pickup location (x,y)
      *
-     * @param id
-     * @param location
+     * @param id: the vehicle's ID
+     * @param location: the vehicle's initial location
      */
     public Vehicle(int id, ILocation location) {
         super(id, location);
         this.service = new ArrayList<IService>(); // initialize the array list (it could only contain one)
-        this.status = FleetStatus.FREE;
         this.status = FleetStatus.FREE;
     }
 
@@ -166,12 +165,10 @@ public class Vehicle extends Fleet{
     public void move() {
 
         // to do --> fix this for two cars
-
-        this.location = this.route.get(0);
-
-        this.route.remove(0);
-
-
+        if (!this.route.isEmpty()) {
+            this.location = this.route.get(0);
+            this.route.remove(0);
+        }
 
         if (this.route.isEmpty()) {
             // check types here

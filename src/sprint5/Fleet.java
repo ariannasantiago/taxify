@@ -11,45 +11,45 @@ import java.util.List;
  */
 
 public abstract class Fleet implements IFleet {
-    private int id;
-    private ITaxiCompany company;
-    //new --> changed to a list isntead of a single instance
-    private List<IService> service;
     protected FleetStatus status;
     protected ILocation location;
     protected ILocation destination;
-    private IStatistics statistics;
     protected List<ILocation> route;
-        
+    private final int id;
+    private ITaxiCompany company;
+    //new --> changed to a list isntead of a single instance
+    private List<IService> service;
+    private final IStatistics statistics;
 
-     /**
+
+    /**
      * sprint5.Vehicle class constructor, takes in unique user ID and pickup location (x,y)
      */
     public Fleet(int id, ILocation location) {
         this.id = id;
         //this.service = new ArrayList<IService>(); // initialize the array list (it could only contain one)
         //this.status = VehicleStatus.FREE;
-        this.location = location;        
+        this.location = location;
         this.destination = ApplicationLibrary.randomLocation(this.location);
         this.statistics = new Statistics();
         this.route = setDrivingRouteToDestination(this.location, this.destination);
     }
 
     @Override
-     /**
+    /**
      * returns users unique id 
      */
     public int getId() {
         return this.id;
     }
- 
+
 
     @Override
-     /**
+    /**
      * getter method: returns users pickup location, as an Ilocation object (x,y) coordinate
      */
     public ILocation getLocation() {
-        return this.location; 
+        return this.location;
     }
 
     @Override
@@ -58,7 +58,7 @@ public abstract class Fleet implements IFleet {
      */
     public ILocation getDestination() {
         return this.destination;
-       
+
     }
 
     @Override
@@ -68,38 +68,38 @@ public abstract class Fleet implements IFleet {
     public ITaxiCompany getCompany() {
         return this.company;
     }
-    
+
 //    @Override
 //     /**
 //     * getter method: returns service
 //     */
 
     @Override
-    public List<IService> getService(){
-      return this.service;
-   }
-    
-    @Override
-     /**
-     * getter method: returns statistics 
-     */
-    public IStatistics getStatistics() {
-       return this.statistics;
-    }
-    
-    @Override
-     /**
-     * setter method: change the company to specific taxicompany 
+    /**
+     * setter method: change the company to specific taxicompany
      */
     public void setCompany(ITaxiCompany company) {
         this.company = company;
     }
-    
+
+    @Override
+    public List<IService> getService() {
+        return this.service;
+    }
+
+    @Override
+    /**
+     * getter method: returns statistics
+     */
+    public IStatistics getStatistics() {
+        return this.statistics;
+    }
+
 //    @Override
 //     /**
 //     * pick a service, set destination to the service pickup location, and status to "pickup"
 //     */
-    
+
 //
 //        this.service.add(service);
 //        this.destination = service.getPickupLocation();
@@ -115,7 +115,7 @@ public abstract class Fleet implements IFleet {
 
     public abstract void bookService(IService service);
 
-//    @Override
+    //    @Override
 //    /**
 //     * set destination to the service drop-off location, update the driving route,
 //     * set status to "service"
@@ -129,7 +129,7 @@ public abstract class Fleet implements IFleet {
 //    }
     public abstract void startService();
 
-//    @Override
+    //    @Override
 //    /**
 //     * ending a service, resetting all the settings
 //     */
@@ -173,7 +173,6 @@ public abstract class Fleet implements IFleet {
     public abstract void endService();
 
 
-
     @Override
     /**
      * notifying the company that the vehicle is at the pickup location,
@@ -183,7 +182,7 @@ public abstract class Fleet implements IFleet {
         this.company.arrivedAtPickupLocation(this);
         this.startService();
     }
-        
+
     @Override
     /**
      * notifying the company that the vehicle is at the dropoff location,
@@ -193,20 +192,19 @@ public abstract class Fleet implements IFleet {
         this.company.arrivedAtDropoffLocation(this);
         this.endService();
         // this.calculateCost();
-     }
-
+    }
 
 
     @Override
     /**
      * ADDED THIS: A getter method to get the status of the vehicle, before there was only a isFree() method
      */
-    public FleetStatus getStatus(){
+    public FleetStatus getStatus() {
         return this.status;
     }
 
     public abstract void move();
-    
+
 //    @Override
 //    /**
 //     * gets the next location from the driving route
@@ -261,24 +259,22 @@ public abstract class Fleet implements IFleet {
      */
     public int calculateCost(IService service) {
 
-        if (service.getShared()==true){
-            return (service.calculateDistance()-2);
-        }
-        else return service.calculateDistance();
+        if (service.getShared()) {
+            return (service.calculateDistance() - 2);
+        } else return service.calculateDistance();
     }
-    
 
-    
+
     /**
-     * shows the route of the car in string format 
+     * shows the route of the car in string format
      */
     public String showDrivingRoute(List<ILocation> route) {
         String s = "";
-       
-           for (ILocation l : route)
-               s = s + l.toString() + " ";
-       
-           return s;
+
+        for (ILocation l : route)
+            s = s + l.toString() + " ";
+
+        return s;
     }
 
 //    @Override
@@ -307,43 +303,43 @@ public abstract class Fleet implements IFleet {
      * turns entire method to string --> changed this to incorporate the new rideshare
      */
     public abstract String toString();
-    
+
     protected List<ILocation> setDrivingRouteToDestination(ILocation location, ILocation destination) {
         List<ILocation> route = new ArrayList<ILocation>();
-        
+
         int x1 = location.getX();
         int y1 = location.getY();
-        
+
         int x2 = destination.getX();
         int y2 = destination.getY();
-        
+
         int dx = Math.abs(x1 - x2);
         int dy = Math.abs(y1 - y2);
-       
-        for (int i=1; i<=dx; i++) {
+
+        for (int i = 1; i <= dx; i++) {
             x1 = (x1 < x2) ? x1 + 1 : x1 - 1;
 
             route.add(new Location(x1, y1));
         }
-        
-        for (int i=1; i<=dy; i++) {
+
+        for (int i = 1; i <= dy; i++) {
             y1 = (y1 < y2) ? y1 + 1 : y1 - 1;
-            
+
             route.add(new Location(x1, y1));
         }
-        
-        return route;
-    }       
 
-   @Override
-   public int getDistanceFromPickUp(IService service) {
-       return Math.abs(this.location.getX() -  service.getPickupLocation().getX()) + Math.abs(this.location.getY() -  service.getPickupLocation().getY());
-     }
-//
-//      @Override
-//      public int getDistanceFromDropoff(IService service) {
-//        return Math.abs(this.location.getX() - service.getDropoffLocation().getX()) + Math.abs(this.location.getY() - service.getDropoffLocation().getY());
-//      }
+        return route;
+    }
+
+    @Override
+    public int getDistanceFromPickUp(IService service) {
+        return Math.abs(this.location.getX() - service.getPickupLocation().getX()) + Math.abs(this.location.getY() - service.getPickupLocation().getY());
+    }
+
+    @Override
+    public int getDistanceFromDropoff(IService service) {
+        return Math.abs(this.location.getX() - service.getDropoffLocation().getX()) + Math.abs(this.location.getY() - service.getDropoffLocation().getY());
+    }
 
 //    @Override
 //    public IService getClosestService() {
@@ -374,8 +370,6 @@ public abstract class Fleet implements IFleet {
 //
 //
 //      }
-    
-
 
 
 }

@@ -6,17 +6,23 @@ package sprint5;
 public interface IService {
 
     public boolean getShared();
+
     public void setShared(boolean shared);
 
     // instead of having a vehicle status as shared, just made it be an attribute in the service class
     public IUser getUser();
-    public ILocation getPickupLocation();
-    public ILocation getDropoffLocation();
-    public int getStars();
-    public void setStars(int stars);
-    public int calculateDistance();
-    public String toString();
-   
 
-   
+    public ILocation getPickupLocation();
+
+    public ILocation getDropoffLocation();
+
+    public int getStars();
+
+    public void setStars(int stars);
+
+    public int calculateDistance();
+
+    public String toString();
+
+
 }

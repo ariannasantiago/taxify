@@ -4,14 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="added micro types, inheritance for taxi/shuttle, still need to fix taxiCompany">
+    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="merged in from liza's branch, moved method implementation to Fleet class, linted code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/ApplicationSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ApplicationSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/Fleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Fleet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/FleetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/FleetStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/IFleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IFleet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/ILocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ILocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/IObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/IStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/ITaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ITaxiCompany.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/IUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/Micro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Micro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Shuttle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Shuttle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Taxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Taxi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/TestProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TestProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/VehicleStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/FleetStatus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,28 +52,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ariannasantiago/IdeaProjects/TaxifySprint5/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/ariannasantiago/IdeaProjects/TaxifySprint5/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sprint5.TestProgram" />
+      <module name="TaxifySprint5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestProgram" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -74,6 +109,7 @@
       <workItem from="1682354043090" duration="255000" />
       <workItem from="1682354307748" duration="132000" />
       <workItem from="1682376076551" duration="1051000" />
+      <workItem from="1682500275556" duration="406000" />
     </task>
     <task id="LOCAL-00001" summary="creting sprint5 repo">
       <created>1681998815370</created>
@@ -106,7 +142,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="liza_micro" />
+                        <option value="arianna_changes" />
                       </list>
                     </value>
                   </entry>
@@ -121,14 +157,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="creting sprint5 repo" />
     <MESSAGE value="added micro types, inheritance for taxi/shuttle, still need to fix taxiCompany" />
-    <option name="LAST_COMMIT_MESSAGE" value="added micro types, inheritance for taxi/shuttle, still need to fix taxiCompany" />
+    <MESSAGE value="merged in from liza's branch, moved method implementation to Fleet class, linted code" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged in from liza's branch, moved method implementation to Fleet class, linted code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/sprint5/TaxiCompany.java</url>
-          <line>166</line>
+          <line>158</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
