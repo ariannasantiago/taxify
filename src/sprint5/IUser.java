@@ -26,6 +26,6 @@ public interface IUser {
 
     public String toString();
 
-    // NEW : added a getLocation() method to the user class
+    // NEW : added a getLocation() and move() method to the user class
 
 }

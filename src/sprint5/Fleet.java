@@ -25,12 +25,12 @@ public abstract class Fleet implements IFleet {
     /**
      * sprint5.Vehicle class constructor, takes in unique user ID and pickup location (x,y)
      */
-    public Fleet(int id, ILocation location) {
+    public Fleet(int id, ILocation location, ILocation destination) {
         this.id = id;
         //this.service = new ArrayList<IService>(); // initialize the array list (it could only contain one)
         //this.status = VehicleStatus.FREE;
         this.location = location;
-        this.destination = ApplicationLibrary.randomLocation(this.location);
+        this.destination = destination;
         this.statistics = new Statistics();
         this.route = setDrivingRouteToDestination(this.location, this.destination);
     }

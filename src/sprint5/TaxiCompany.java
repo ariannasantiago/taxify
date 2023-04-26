@@ -60,7 +60,8 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
         int userIndex = indexOfUserId(user);
         int vehicleIndex = findFreeVehicle();
 
-        // if there is a free vehicle, assign a random pickup and drop-off location to the new service
+        // if there is a free vehicle,
+        // assign a random pickup and drop-off location to the new service
         // the distance between the pickup and the drop-off location should be at least 3 blocks
 
         if (vehicleIndex != -1) {
@@ -72,15 +73,50 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
 
             } while (ApplicationLibrary.distance(origin, destination) < 3);
             //this.vehicles.get(vehicleIndex).getLocation()
-            // update the user status
 
+
+            // update the user status
             this.users.get(userIndex).setService(true);
 
+
+            // FIRST OPTION: find MicroMobility vehicle and offer it to the user
+            int micro_vehicle = -1;
+            int distance_to_micro = 100000;
+            for(IFleet ve : this.vehicles) {
+                int distanceFromUser = ApplicationLibrary.distance(this.users.get(userIndex).getLocation(), ve.getLocation());
+                if ((ve.getClass().getSimpleName().equals("Scooter") || (ve.getClass().getSimpleName().equals("Bike")) )
+                        && ve.getStatus() == FleetStatus.FREE
+                        && distanceFromUser < distance_to_micro && distanceFromUser >= 2) {
+                    distance_to_micro = distanceFromUser;
+                    micro_vehicle = ve.getId();
+                }
+            }
+
+            if (micro_vehicle != -1 && ApplicationLibrary.rand() % 3 == 0) {
+                micro_vehicle--; //decrement value to get index
+                IFleet micro = this.vehicles.get(micro_vehicle);
+
+                // create a service with the user, the micro's location as the origin, and the drop-off location
+                Service service = new Service(this.users.get(userIndex), micro.getLocation(), destination, false);
+                micro.bookService(service);
+
+                notifyObserver("User " + this.users.get(userIndex).getId() + " requests a micro service from " + service + ", the ride is assigned to " +
+                        micro.getClass().getSimpleName() + " " + micro.getId() + " at location " +
+                        micro.getLocation());
+
+                // update the counter of services
+
+                this.totalServices++;
+
+                return true;
+
+            }
+
+
+            // SECOND OPTION: find shared vehicle and offer it to the user
+
             // create a service with the user, the pickup and the drop-off location
-
             Service service = new Service(this.users.get(userIndex), origin, destination, false);
-
-            // shared ride specifics 
 
             int shared_vehicle = -1;
             int distance_to_shared = 100000;
@@ -101,9 +137,9 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
                 shared_vehicle--;
                 // getting an index out of bounds error so tried to decrement index
 
-
                 IFleet shared = this.vehicles.get(shared_vehicle);
-                // this service needs to be changed to current service
+
+                // if this pickup is closer than other service dropoff, change this to current service and do pickup
                 if (shared.getDistanceFromPickUp(service) < shared.getDistanceFromDropoff(shared.getClosestService())) {
 
                     if (shared.getService().size() == 1) {
@@ -122,7 +158,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
                     return true;
 
                 }
-            } else { // rideshare rejected, doing a free vehicle
+            } else { // rideshare rejected OR pickup farther than dropoff, doing the closest a free vehicle
 
                 int free_vehicle = -1;
                 int distance_to_free = 100000;

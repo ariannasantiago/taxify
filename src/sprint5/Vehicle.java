@@ -15,7 +15,7 @@ public class Vehicle extends Fleet{
      * @param location: the vehicle's initial location
      */
     public Vehicle(int id, ILocation location) {
-        super(id, location);
+        super(id, location, ApplicationLibrary.randomLocation(location));
         this.service = new ArrayList<IService>(); // initialize the array list (it could only contain one)
         this.status = FleetStatus.FREE;
     }
@@ -207,19 +207,33 @@ public class Vehicle extends Fleet{
      */
     public String toString() {
 
-        if (this.service.size()==1){
-            return " at " + this.getLocation() + " driving to " + this.getDestination() +
-                    ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service "));
-
-
+        if (this.getStatus() == FleetStatus.FREE) {
+            return " at " + this.getLocation() + " driving to " + this.getDestination() + " is free with path " + showDrivingRoute(this.route);
+        } else if (this.service.size() == 1) {
+            return " at " + this.getLocation() + " driving to " + this.getDestination() + " is available with path " + showDrivingRoute(this.route)
+            + ((this.getStatus() == FleetStatus.PICKUP) ? " to pickup " : " to service ")
+            + "user " + this.getClosestService().getUser().getId();
+        } else {
+            return " at " + this.getLocation() + " driving to " + this.getDestination() + "is available with path " + showDrivingRoute(this.route)
+                    + ((this.getStatus() == FleetStatus.PICKUP) ? " to pickup " : " to dropoff ")
+                    + "user " + this.getClosestService().getUser().getId();
+                    //+ " and has " + this.getService().size() + " rideshare users";
         }
-        else{
-            return " at " + this.getLocation() + " driving to " + this.getDestination() +
-                    ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service ")) + " shared ride with user" ;
 
 
-
-        }
+//        if (this.service.size()==1){
+//            return " at " + this.getLocation() + " driving to " + this.getDestination() +
+//                    ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service "));
+//
+//
+//        }
+//        else{
+//            return " at " + this.getLocation() + " driving to " + this.getDestination() +
+//                    ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service ")) + " shared ride with user" ;
+//
+//
+//
+//        }
     }
 
 }

@@ -77,4 +77,5 @@ public class User implements IUser {
     public String toString() {
         return this.getId() + " " + String.format("%-20s", this.getFirstName() + " " + this.getLastName());
     }
+
 }

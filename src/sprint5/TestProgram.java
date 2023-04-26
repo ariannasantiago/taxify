@@ -64,9 +64,9 @@ public class TestProgram {
         IFleet car11 = new Taxi(11, ApplicationLibrary.randomLocation());
         IFleet car12 = new Taxi(12, ApplicationLibrary.randomLocation());
         IFleet car13 = new Taxi(13, ApplicationLibrary.randomLocation());
-        IFleet micro1 = new Scooter(21, ApplicationLibrary.randomLocation());
-        IFleet micro2 = new Scooter(22, ApplicationLibrary.randomLocation());
-        IFleet micro3 = new Bike(23, ApplicationLibrary.randomLocation());
+        IFleet micro1 = new Scooter(14, ApplicationLibrary.randomLocation());
+        IFleet micro2 = new Scooter(15, ApplicationLibrary.randomLocation());
+        IFleet micro3 = new Bike(16, ApplicationLibrary.randomLocation());
 
 
 

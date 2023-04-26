@@ -16,12 +16,11 @@ public class Micro extends Fleet {
      * @param location: the initial location of the micromobility vehicle
      */
     public Micro(int id, ILocation location) {
-        super(id, location);
+        super(id, location, location);
         // initialize the array list (it could only contain one)
         //this.status = MicroStatus.FREE;
         this.status = FleetStatus.FREE;
         this.service = new ArrayList<IService>(1);
-
     }
 
     /**
@@ -45,7 +44,6 @@ public class Micro extends Fleet {
     @Override
     public void bookService(IService service) {
         this.service.add(service);
-        //this.status = MicroStatus.BOOKED;
         this.status = FleetStatus.BOOKED;
 
     }
@@ -53,7 +51,6 @@ public class Micro extends Fleet {
     @Override
     public void startService() {
         this.status = FleetStatus.INRIDE;
-
         this.destination = this.service.get(0).getDropoffLocation();
         //used get pickuplocation() as start, could alternatively be this.location
 
@@ -81,7 +78,7 @@ public class Micro extends Fleet {
 
         // set service to null, and status to "free"
 
-        this.service = null;
+        this.service.remove(0);
         this.status = FleetStatus.FREE;
 
     }
@@ -91,21 +88,25 @@ public class Micro extends Fleet {
      * gets the next location from the driving route
      */
     public void move() {
-        // if somewhere to go, go
-        if (!this.route.isEmpty()) {
-            this.location = this.route.get(0);
-            this.route.remove(0);
-        }
+        // if not moving and there is a service
+        if (this.route.isEmpty() && this.service.size() != 0) {
+            IService service = this.getClosestService();
+            ILocation destination = service.getDropoffLocation();
 
-        // if not moving and there is a service, check if at dropoff location
-        if (this.route.isEmpty()) {
-            if (this.service.size() != 0) {
-
-                IService service = this.getClosestService();
-                ILocation destination = service.getDropoffLocation();
-                if (this.location.getX() == destination.getX() && this.location.getY() == destination.getY()) {
-                    notifyArrivalAtDropoffLocation();
-                }
+            // first check if user is at pickup location (aka assume user made it to pickup location and is ready to go)
+            if (this.getStatus() == FleetStatus.BOOKED) {
+                //&& (this.getLocation().getX() == service.getUser().getLocation().getX() && this.getLocation().getY() == service.getUser().getLocation().getY())) {
+                notifyArrivalAtPickupLocation();
+            }
+            // then check if at dropoff location
+            if (this.location.getX() == destination.getX() && this.location.getY() == destination.getY()) {
+                notifyArrivalAtDropoffLocation();
+            }
+        } else {
+            // if somewhere to go, go
+            if (this.getStatus() == FleetStatus.INRIDE && !this.route.isEmpty()) {
+                this.location = this.route.get(0);
+                this.route.remove(0);
             }
         }
     }
