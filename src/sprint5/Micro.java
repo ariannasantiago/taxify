@@ -119,7 +119,7 @@ public class Micro extends Fleet {
     }
 
     public IService getClosestService() {
-        if (this.getStatus() == FleetStatus.FREE)
+        if (this.service.size() == 0 || this.getStatus() == FleetStatus.FREE)
             return null;
         else
             return this.service.get(0);

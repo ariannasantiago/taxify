@@ -30,7 +30,7 @@ public class Location implements ILocation {
     // to string method returns location as an ordered pair of points
     @Override
     public String toString() {
-        return "sprint5.Location: (" + x_cord + "," + y_cord + ").";
+        return "Location: (" + x_cord + "," + y_cord + ").";
     }
 
 }

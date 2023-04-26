@@ -1,7 +1,7 @@
 package sprint5;
 
 /**
- * class sprint5.Taxi extends abstract class sprint5.Vehicle
+ * class Taxi extends abstract class Vehicle
  * taxi specific information, including taxi specific cost (different from shuttle)
  */
 public class Taxi extends Vehicle {
@@ -18,6 +18,6 @@ public class Taxi extends Vehicle {
 
     @Override
     public String toString() {
-        return "sprint5.Taxi    " + super.toString();
+        return "Taxi    " + super.toString();
     }
 }

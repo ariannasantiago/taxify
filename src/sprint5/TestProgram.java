@@ -61,9 +61,12 @@ public class TestProgram {
         IFleet car8 = new Taxi(8, ApplicationLibrary.randomLocation());
         IFleet car9 = new Taxi(9, ApplicationLibrary.randomLocation());
         IFleet car10 = new Taxi(10, ApplicationLibrary.randomLocation());
-        IFleet micro1 = new Scooter(11, ApplicationLibrary.randomLocation());
-        IFleet micro2 = new Scooter(12, ApplicationLibrary.randomLocation());
-        IFleet micro3 = new Bike(13, ApplicationLibrary.randomLocation());
+        IFleet car11 = new Taxi(11, ApplicationLibrary.randomLocation());
+        IFleet car12 = new Taxi(12, ApplicationLibrary.randomLocation());
+        IFleet car13 = new Taxi(13, ApplicationLibrary.randomLocation());
+        IFleet micro1 = new Scooter(21, ApplicationLibrary.randomLocation());
+        IFleet micro2 = new Scooter(22, ApplicationLibrary.randomLocation());
+        IFleet micro3 = new Bike(23, ApplicationLibrary.randomLocation());
 
 
 
@@ -77,6 +80,9 @@ public class TestProgram {
         vehicles.add(car8);
         vehicles.add(car9);
         vehicles.add(car10);
+        vehicles.add(car11);
+        vehicles.add(car12);
+        vehicles.add(car13);
         vehicles.add(micro1);
         vehicles.add(micro2);
         vehicles.add(micro3);
@@ -98,7 +104,7 @@ public class TestProgram {
 
             if (ApplicationLibrary.rand() % 4 == 0) application.requestService();
 
-        } while (application.getTotalServices() != 0);
+        } while (application.getNumRequestedServices() <= 150 && application.getTotalServices() != 0);
 
         application.showStatistics();
 

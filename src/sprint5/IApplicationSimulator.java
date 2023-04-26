@@ -7,5 +7,7 @@ public interface IApplicationSimulator {
     public void update();
     public void requestService();
     public int getTotalServices();
+
+    public int getNumRequestedServices();
     
 }

@@ -18,6 +18,6 @@ public class Shuttle extends Vehicle {
 
     @Override
     public String toString() {
-        return "sprint5.Shuttle " + super.toString();
+        return "Shuttle " + super.toString();
     }
 }

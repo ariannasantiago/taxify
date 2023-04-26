@@ -10,6 +10,8 @@ public class ApplicationSimulator implements IApplicationSimulator, IObserver {
     private List<IUser> users;
     private List<IFleet> vehicles;
 
+    private int numServicesRequested;
+
     /**
      * constructor, takes in parameters company, list of users, and list of vehicles
      */
@@ -25,11 +27,12 @@ public class ApplicationSimulator implements IApplicationSimulator, IObserver {
      */
     public void show() {
 
-        System.out.println("\n" + this.company.getName() + " status \n");
+        System.out.println("\n" + this.company.getName() + " status\n");
 
         for (int i = 0; i < this.vehicles.size(); i++) {
             System.out.println(this.vehicles.get(i).toString());
         }
+        System.out.println("Total Services Requested: " + this.getNumRequestedServices());
     }
 
     @Override
@@ -77,6 +80,7 @@ public class ApplicationSimulator implements IApplicationSimulator, IObserver {
         for (IUser u : this.users) {
             if (u.getService() == false) {
                 this.company.provideService(u.getId());
+                numServicesRequested++;
                 // maygbe change this to users request service
                 break;
             }
@@ -89,6 +93,14 @@ public class ApplicationSimulator implements IApplicationSimulator, IObserver {
      */
     public int getTotalServices() {
         return this.company.getTotalServices();
+    }
+
+    @Override
+    /**
+     * getter method: returns total services requested by simulation
+     */
+    public int getNumRequestedServices() {
+        return this.numServicesRequested;
     }
 
     @Override

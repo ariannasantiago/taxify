@@ -111,7 +111,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
                         service.setShared(true);
                     }
 
-                    notifyObserver("sprint5.User " + this.users.get(userIndex).getId() + " requests a service from " + service.toString() + ", the ride is assigned to " +
+                    notifyObserver("User " + this.users.get(userIndex).getId() + " requests a service from " + service.toString() + ", the ride is assigned to " +
                             shared.getClass().getSimpleName() + " " + shared.getId() + " at location " +
                             shared.getLocation().toString() + " and is a shared ride. ");
 
