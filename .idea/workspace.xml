@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="Bike and Scooter Classes added (and to tet program), fixed Micro.move() logic, fixed ApplicationSim.showStatistics() formatting">
+    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/ApplicationSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/ApplicationSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/IApplicationSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IApplicationSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/Micro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Micro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/Shuttle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Shuttle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/Taxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Taxi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprint5/TestProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TestProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +26,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="77a822bf-f624-4b67-81ab-8273f5b837d2" />
+        <option name="url" value="https://github.com/ariannasantiago/taxify.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -128,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682517197397</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram">
+      <created>1682522130358</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682522130358</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,14 +178,15 @@
     <MESSAGE value="added micro types, inheritance for taxi/shuttle, still need to fix taxiCompany" />
     <MESSAGE value="merged in from liza's branch, moved method implementation to Fleet class, linted code" />
     <MESSAGE value="Bike and Scooter Classes added (and to tet program), fixed Micro.move() logic, fixed ApplicationSim.showStatistics() formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bike and Scooter Classes added (and to tet program), fixed Micro.move() logic, fixed ApplicationSim.showStatistics() formatting" />
+    <MESSAGE value="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/sprint5/TaxiCompany.java</url>
-          <line>158</line>
+          <line>181</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

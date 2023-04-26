@@ -18,6 +18,6 @@ public class Shuttle extends Vehicle {
 
     @Override
     public String toString() {
-        return "Shuttle " + super.toString();
+        return ("Shuttle " + this.getId() + " with " + this.getService().size() + " services "+ super.toString());
     }
 }

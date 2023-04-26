@@ -18,6 +18,6 @@ public class Taxi extends Vehicle {
 
     @Override
     public String toString() {
-        return "Taxi    " + super.toString();
+        return ("Taxi    " + this.getId() + " with " + this.getService().size() + " services "+ super.toString());
     }
 }

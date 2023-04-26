@@ -67,7 +67,6 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
             ILocation origin, destination;
 
             do {
-
                 origin = ApplicationLibrary.randomLocation();
                 destination = ApplicationLibrary.randomLocation(origin);
 
@@ -87,8 +86,9 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
             int distance_to_shared = 100000;
 
             // determining "close" as manhattan distance of 2
+            // look for shared vehicle first
             for (IFleet ve : this.vehicles) {
-                if ((!this.vehicles.get(vehicleIndex).getClass().getSimpleName().equals("Micro"))
+                if ((!ve.getClass().getSimpleName().equals("Scooter") && (!ve.getClass().getSimpleName().equals("Bike")) )
                         && ve.getStatus() == FleetStatus.SERVICE
                         && ve.getDistanceFromPickUp(service) < distance_to_shared && ve.getDistanceFromPickUp(service) >= 2) {
                     distance_to_shared = (ve.getDistanceFromPickUp(service));
@@ -96,7 +96,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
                 }
             }
 
-            // randomizing ride share
+            // randomizing ride share acceptance
             if (shared_vehicle != -1 && ApplicationLibrary.rand() % 2 == 0) {
                 shared_vehicle--;
                 // getting an index out of bounds error so tried to decrement index
@@ -111,9 +111,9 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
                         service.setShared(true);
                     }
 
-                    notifyObserver("User " + this.users.get(userIndex).getId() + " requests a service from " + service.toString() + ", the ride is assigned to " +
+                    notifyObserver("User " + this.users.get(userIndex).getId() + " requests a shared service from " + service + ", the ride is assigned to " +
                             shared.getClass().getSimpleName() + " " + shared.getId() + " at location " +
-                            shared.getLocation().toString() + " and is a shared ride. ");
+                            shared.getLocation());
 
                     // update the counter of services
 
@@ -122,28 +122,51 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
                     return true;
 
                 }
+            } else { // rideshare rejected, doing a free vehicle
+
+                int free_vehicle = -1;
+                int distance_to_free = 100000;
+
+                //look for the closest free vehicle that's at least 2 blocks away
+                for (IFleet ve : this.vehicles) {
+                    if ( (!ve.getClass().getSimpleName().equals("Scooter") && (!ve.getClass().getSimpleName().equals("Bike")))
+                            && ve.getStatus() == FleetStatus.FREE
+                            && ve.getDistanceFromPickUp(service) < distance_to_free && ve.getDistanceFromPickUp(service) >= 2) {
+                        distance_to_free = (ve.getDistanceFromPickUp(service));
+                        free_vehicle = ve.getId();
+                        //System.out.println("vehicle " + ve.getId() + "class name is: " + ve.getClass().getSimpleName());
+                    }
+                }
+
+                this.users.get(userIndex).setService(true);
+
+                // create a service with the user, the pickup and the drop-off location
+                Service not_shared_service = new Service(this.users.get(userIndex), origin, destination, false);
+
+                // assign the new service to a close free vehicle
+                if (free_vehicle != -1) {
+                    --free_vehicle;
+                    this.vehicles.get(free_vehicle).bookService(not_shared_service);
+
+                    notifyObserver("User " + this.users.get(userIndex).getId() + " requests a nonshared service from " + service + ", the ride is assigned to " +
+                            this.vehicles.get(free_vehicle).getClass().getSimpleName() + " " + this.vehicles.get(free_vehicle).getId() + " at location " +
+                            this.vehicles.get(free_vehicle).getLocation());
+                } else {
+                    // or to the free vehicle found initially
+                    this.vehicles.get(vehicleIndex).bookService(not_shared_service);
+
+                    notifyObserver("User " + this.users.get(userIndex).getId() + " requests a nonshared service from " + service+ ", the ride is assigned to " +
+                            this.vehicles.get(vehicleIndex).getClass().getSimpleName() + " " + this.vehicles.get(vehicleIndex).getId() + " at location " +
+                            this.vehicles.get(vehicleIndex).getLocation());
+                }
+
+
+                // update the counter of services
+
+                this.totalServices++;
+
+                return true;
             }
-
-
-            this.users.get(userIndex).setService(true);
-
-            // create a service with the user, the pickup and the drop-off location
-
-            Service not_shared_service = new Service(this.users.get(userIndex), origin, destination, false);
-
-            // assign the new service to the vehicle
-
-            this.vehicles.get(vehicleIndex).bookService(not_shared_service);
-
-            notifyObserver("sprint5.User " + this.users.get(userIndex).getId() + " requests a service from " + service.toString() + ", the ride is assigned to " +
-                    this.vehicles.get(vehicleIndex).getClass().getSimpleName() + " " + this.vehicles.get(vehicleIndex).getId() + " at location " +
-                    this.vehicles.get(vehicleIndex).getLocation().toString());
-
-            // update the counter of services
-
-            this.totalServices++;
-
-            return true;
         }
         return false;
     }

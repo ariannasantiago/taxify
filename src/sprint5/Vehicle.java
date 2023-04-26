@@ -208,13 +208,13 @@ public class Vehicle extends Fleet{
     public String toString() {
 
         if (this.service.size()==1){
-            return this.getId() + " at " + this.getLocation() + " driving to " + this.getDestination() +
+            return " at " + this.getLocation() + " driving to " + this.getDestination() +
                     ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service "));
 
 
         }
         else{
-            return this.getId() + " at " + this.getLocation() + " driving to " + this.getDestination() +
+            return " at " + this.getLocation() + " driving to " + this.getDestination() +
                     ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service ")) + " shared ride with user" ;
 
 
