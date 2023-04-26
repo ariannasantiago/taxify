@@ -129,9 +129,7 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
 
                 //look for the closest free vehicle that's at least 2 blocks away
                 for (IFleet ve : this.vehicles) {
-                    if ( (!ve.getClass().getSimpleName().equals("Scooter") && (!ve.getClass().getSimpleName().equals("Bike")))
-                            && ve.getStatus() == FleetStatus.FREE
-                            && ve.getDistanceFromPickUp(service) < distance_to_free && ve.getDistanceFromPickUp(service) >= 2) {
+                    if ( ve.getStatus() == FleetStatus.FREE) {
                         distance_to_free = (ve.getDistanceFromPickUp(service));
                         free_vehicle = ve.getId();
                         //System.out.println("vehicle " + ve.getId() + "class name is: " + ve.getClass().getSimpleName());

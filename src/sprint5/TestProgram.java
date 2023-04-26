@@ -60,14 +60,14 @@ public class TestProgram {
         IFleet car7 = new Shuttle(7, ApplicationLibrary.randomLocation());
         IFleet car8 = new Taxi(8, ApplicationLibrary.randomLocation());
         IFleet car9 = new Taxi(9, ApplicationLibrary.randomLocation());
-        IFleet car10 = new Taxi(10, ApplicationLibrary.randomLocation());
-        IFleet car11 = new Taxi(11, ApplicationLibrary.randomLocation());
-        IFleet car12 = new Taxi(12, ApplicationLibrary.randomLocation());
-        IFleet car13 = new Taxi(13, ApplicationLibrary.randomLocation());
-        IFleet micro1 = new Scooter(21, ApplicationLibrary.randomLocation());
-        IFleet micro2 = new Scooter(22, ApplicationLibrary.randomLocation());
-        IFleet micro3 = new Bike(23, ApplicationLibrary.randomLocation());
+        IFleet micro1 = new Scooter(10, ApplicationLibrary.randomLocation());
+        IFleet micro2 = new Scooter(11, ApplicationLibrary.randomLocation());
+        IFleet micro3 = new Bike(12, ApplicationLibrary.randomLocation());
+        IFleet micro4 = new Bike(13, ApplicationLibrary.randomLocation());
+        IFleet micro5 = new Bike(14, ApplicationLibrary.randomLocation());
 
+
+       
 
 
         vehicles.add(car1);
@@ -79,16 +79,14 @@ public class TestProgram {
         vehicles.add(car7);
         vehicles.add(car8);
         vehicles.add(car9);
-        vehicles.add(car10);
-        vehicles.add(car11);
-        vehicles.add(car12);
-        vehicles.add(car13);
         vehicles.add(micro1);
         vehicles.add(micro2);
         vehicles.add(micro3);
+        vehicles.add(micro4);
+        vehicles.add(micro5);
 
         TaxiCompany taxify = new TaxiCompany("Taxify", users, vehicles);
-        ApplicationSimulator application = new ApplicationSimulator(taxify, users, vehicles);
+        ApplicationSimulator    application = new ApplicationSimulator(taxify, users, vehicles);
         taxify.addObserver(application);
 
 
