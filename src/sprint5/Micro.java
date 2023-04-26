@@ -12,8 +12,8 @@ public class Micro extends Fleet {
     /**
      * sprint5. Micro class constructor, takes in unique user ID and pickup location (x,y)
      *
-     * @param id
-     * @param location
+     * @param id: the ID of the micromobility vehicle
+     * @param location: the initial location of the micromobility vehicle
      */
     public Micro(int id, ILocation location) {
         super(id, location);
@@ -91,38 +91,19 @@ public class Micro extends Fleet {
      * gets the next location from the driving route
      */
     public void move() {
-
-        // to do --> fix this for two cars
-
+        // if somewhere to go, go
         if (!this.route.isEmpty()) {
             this.location = this.route.get(0);
             this.route.remove(0);
         }
 
-
+        // if not moving and there is a service, check if at dropoff location
         if (this.route.isEmpty()) {
-            if (this.service.size() == 0) {
-                // stays in place, do nothing
-
-//                this.destination = ApplicationLibrary.randomLocation(this.location);
-//                this.route = setDrivingRouteToDestination(this.location, this.destination);
-
-
-            } else {
+            if (this.service.size() != 0) {
 
                 IService service = this.getClosestService();
-                // checks if the vehicle has arrived to a drop off location
-
-                //ILocation origin = service.getPickupLocation();
                 ILocation destination = service.getDropoffLocation();
-
-//                if (this.location.getX() == origin.getX() && this.location.getY() == origin.getY()) {
-//
-//                    notifyArrivalAtPickupLocation();
-//
-//                } else
                 if (this.location.getX() == destination.getX() && this.location.getY() == destination.getY()) {
-
                     notifyArrivalAtDropoffLocation();
                 }
             }

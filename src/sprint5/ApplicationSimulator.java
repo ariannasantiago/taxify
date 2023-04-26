@@ -39,9 +39,22 @@ public class ApplicationSimulator implements IApplicationSimulator, IObserver {
     public void showStatistics() {
         System.out.println("\n" + this.company.getName() + " statistics \n");
 
+//        for (IFleet ve : this.vehicles) {
+//            IStatistics stats = ve.getStatistics();
+//            System.out.println("\n" + ve.getClass().getSimpleName() + " " + ve.getId() + " " + stats.getServices() + " services " + stats.getDistance() + " km. " + stats.getBilling() + " eur. " + stats.getReviews() + " reviews. " + stats.getStars() + " stars. ");
+//        }
         for (IFleet ve : this.vehicles) {
             IStatistics stats = ve.getStatistics();
-            System.out.println("\n" + ve.getClass().getSimpleName() + " " + ve.getId() + " " + stats.getServices() + " services " + stats.getDistance() + " km. " + stats.getBilling() + " eur. " + stats.getReviews() + " reviews. " + stats.getStars() + " stars. ");
+            String str = String.format("%-7s %2d  %2d services  %3d km.  %2s eur. %2d reviews  %-3.2f stars",
+                    ve.getClass().getSimpleName().replaceAll("sprint5.", ""),
+                    ve.getId(),
+                    stats.getServices(),
+                    stats.getDistance(),
+                    stats.getBilling(),
+                    stats.getReviews(),
+                    stats.getStars()
+            );
+            System.out.println(str);
         }
     }
 

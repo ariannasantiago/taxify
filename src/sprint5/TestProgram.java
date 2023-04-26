@@ -61,9 +61,10 @@ public class TestProgram {
         IFleet car8 = new Taxi(8, ApplicationLibrary.randomLocation());
         IFleet car9 = new Taxi(9, ApplicationLibrary.randomLocation());
         IFleet car10 = new Taxi(10, ApplicationLibrary.randomLocation());
+        IFleet micro1 = new Scooter(11, ApplicationLibrary.randomLocation());
+        IFleet micro2 = new Scooter(12, ApplicationLibrary.randomLocation());
+        IFleet micro3 = new Bike(13, ApplicationLibrary.randomLocation());
 
-        IFleet micro1 = new Micro(11, ApplicationLibrary.randomLocation());
-        IFleet micro2 = new Micro(1, ApplicationLibrary.randomLocation());
 
 
         vehicles.add(car1);
@@ -78,6 +79,7 @@ public class TestProgram {
         vehicles.add(car10);
         vehicles.add(micro1);
         vehicles.add(micro2);
+        vehicles.add(micro3);
 
         TaxiCompany taxify = new TaxiCompany("Taxify", users, vehicles);
         ApplicationSimulator application = new ApplicationSimulator(taxify, users, vehicles);
