@@ -7,15 +7,26 @@ package sprint5;
 public interface IUser {
 
     public int getId();
+
     public String getFirstName();
+
     public String getLastName();
+
     public boolean getService();
+
     public void setService(boolean service);
+
+     // NEW : added a getLocation() and move() method to the user class
+    public ILocation getLocation();
+
     public void requestService();
+
     public void rateService(IService service);
+
     public void setCompany(ITaxiCompany company);
+
     public String toString();
 
-   // NEW : added a getLocation() method to the user class 
+   
 
 }

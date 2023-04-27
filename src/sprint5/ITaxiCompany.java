@@ -1,20 +1,20 @@
 package sprint5;
 
 /**
- * sprint5.Taxi company as a whole
+ * sprint5.Taxi company as a whole --> implemented by TaxiCompany to run the program
  */
 
 public interface ITaxiCompany {
 
-    public String getName();    
-    public int getTotalServices();
-    public boolean provideService(int user);
-    public void arrivedAtPickupLocation(IVehicle vehicle);
-    public void arrivedAtDropoffLocation(IVehicle vehicle);
+    String getName();
 
-        
-    }
+    int getTotalServices();
 
-    // more methods will be declared in upcoming sprints
+    boolean provideService(int user);
+
+    void arrivedAtPickupLocation(IFleet vehicle);
+
+    void arrivedAtDropoffLocation(IFleet vehicle);
 
 
+}

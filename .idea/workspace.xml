@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="" />
+    <list default="true" id="24959068-a4c8-4c46-801e-b7c7f9b7047c" name="Changes" comment="tweaked location and micro string outputs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Fleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Fleet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/IUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/IUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Micro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Micro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TaxiCompany.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/TestProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/TestProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint5/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint5/Vehicle.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="77a822bf-f624-4b67-81ab-8273f5b837d2" />
+        <option name="url" value="https://github.com/ariannasantiago/taxify.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Oh23kGJFLJUTFpipfIEfs4t2xi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -16,14 +52,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ariannasantiago/IdeaProjects/TaxifySprint5/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
+    ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sprint5" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sprint5.TestProgram" />
+      <module name="TaxifySprint5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestProgram" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -32,7 +112,133 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681998297773</updated>
+      <workItem from="1681998300131" duration="3364000" />
+      <workItem from="1682345688597" duration="4716000" />
+      <workItem from="1682354043090" duration="255000" />
+      <workItem from="1682354307748" duration="132000" />
+      <workItem from="1682376076551" duration="1051000" />
+      <workItem from="1682500275556" duration="406000" />
+      <workItem from="1682545384748" duration="6275000" />
     </task>
+    <task id="LOCAL-00001" summary="creting sprint5 repo">
+      <created>1681998815370</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681998815370</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added micro types, inheritance for taxi/shuttle, still need to fix taxiCompany">
+      <created>1682354365156</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682354365156</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Bike and Scooter Classes added (and to tet program), fixed Micro.move() logic, fixed ApplicationSim.showStatistics() formatting">
+      <created>1682517197397</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682517197397</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram">
+      <created>1682522130358</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682522130358</updated>
+    </task>
+    <task id="LOCAL-00005" summary="TaxiCompany logic to find closest free vehicle, Shuttle and Taxi toString() to print number of active services,">
+      <created>1682524482021</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682524482021</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="arianna_changes" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="creting sprint5 repo" />
+    <MESSAGE value="added micro types, inheritance for taxi/shuttle, still need to fix taxiCompany" />
+    <MESSAGE value="merged in from liza's branch, moved method implementation to Fleet class, linted code" />
+    <MESSAGE value="Bike and Scooter Classes added (and to tet program), fixed Micro.move() logic, fixed ApplicationSim.showStatistics() formatting" />
+    <MESSAGE value="Formatted statistics() and toString() methods, added numRequestedServices to application simulator and 150 service cap to TestProgram" />
+    <MESSAGE value="TaxiCompany logic to find closest free vehicle, Shuttle and Taxi toString() to print number of active services," />
+    <option name="LAST_COMMIT_MESSAGE" value="TaxiCompany logic to find closest free vehicle, Shuttle and Taxi toString() to print number of active services," />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sprint5/TaxiCompany.java</url>
+          <line>217</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sprint5/Micro.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sprint5/Micro.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/sprint5/Micro.java</url>
+          <line>89</line>
+          <properties class="sprint5.Micro" method="move">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/sprint5/Micro.java</url>
+          <line>51</line>
+          <properties class="sprint5.Micro" method="startService">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/sprint5/Micro.java</url>
+          <line>44</line>
+          <properties class="sprint5.Micro" method="bookService">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
