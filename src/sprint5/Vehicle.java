@@ -3,6 +3,9 @@ package sprint5;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+     * class Vehicle extends abstract class fleet 
+     */
 public class Vehicle extends Fleet{
     private List<IService> service;
     //private VehicleStatus status;
@@ -51,13 +54,6 @@ public class Vehicle extends Fleet{
         return false;
     }
 
-
-//    /**
-//     * ADDED THIS: A getter method to get the status of the vehicle, before there was only a isFree() method
-//     */
-//    public VehicleStatus getStatus(){
-//        return this.status;
-//    }
 
     /**
      * set destination to the service drop-off location, update the driving route,
@@ -111,24 +107,24 @@ public class Vehicle extends Fleet{
         }
     }
 
-
-//    /**
-//     * notifying the company that the vehicle is at the pickup location,
-//     * then start the service
-//     */
-//    public void notifyArrivalAtPickupLocation() {
-//        this.getCompany().arrivedAtPickupLocation(this);
-//        this.startService();
-//    }
-
+    
+    /**
+     * get distance from service to the pickip location of user
+     */
     public int getDistanceFromPickUp(IService service) {
         return Math.abs(this.getLocation().getX() -  service.getPickupLocation().getX()) + Math.abs(this.getLocation().getY() -  service.getPickupLocation().getY());
     }
 
+    /**
+     * get distance from service to the dropoff location of user
+     */
     public int getDistanceFromDropoff(IService service) {
         return Math.abs(this.getLocation().getX() - service.getDropoffLocation().getX()) + Math.abs(this.getLocation().getY() - service.getDropoffLocation().getY());
     }
 
+    /**
+     * get the closest service to the vehicle
+     */
     public IService getClosestService() {
         // returns the current and closest service that the vehicle is in (can be more than one)_
 
@@ -221,19 +217,6 @@ public class Vehicle extends Fleet{
         }
 
 
-//        if (this.service.size()==1){
-//            return " at " + this.getLocation() + " driving to " + this.getDestination() +
-//                    ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service "));
-//
-//
-//        }
-//        else{
-//            return " at " + this.getLocation() + " driving to " + this.getDestination() +
-//                    ((this.status == FleetStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == FleetStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service ")) + " shared ride with user" ;
-//
-//
-//
-//        }
     }
 
 }

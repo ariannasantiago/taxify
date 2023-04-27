@@ -6,16 +6,25 @@ package sprint5;
  */
 public class Shuttle extends Vehicle {
 
+    /**
+     * constructor --> takes in id and location
+     */
     public Shuttle(int id, ILocation location) {
         super(id, location);
     }
 
+    /**
+     * overridden calculate cost method
+     */
     @Override
-    // update this for billing if the ride is shared -- alternatively just call updatebilling() and add a new cost less
+    
     public int calculateCost(IService service) {
         return (int) (super.calculateCost(service) * 1.5);
     }
 
+    /**
+     * overridden to string
+     */
     @Override
     public String toString() {
         return ("Shuttle " + this.getId() + " with " + this.getService().size() + " services "+ super.toString());

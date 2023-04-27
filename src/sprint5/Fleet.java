@@ -5,9 +5,8 @@ import java.util.List;
 
 
 /**
- * ABSTRACT class vehicle implements sprint5.IVehicle
+ * ABSTRACT class fleet implements IFleet
  * constructor takes in id and location (x,y)
- * implements sprint5.IVehicle methods, includes information for taxi and shuttle as child classes
  */
 
 public abstract class Fleet implements IFleet {
@@ -23,7 +22,7 @@ public abstract class Fleet implements IFleet {
 
 
     /**
-     * sprint5.Vehicle class constructor, takes in unique user ID and pickup location (x,y)
+     *Fleet class constructor, takes in unique user ID and pickup location (x,y), and destination
      */
     public Fleet(int id, ILocation location, ILocation destination) {
         this.id = id;
@@ -94,83 +93,20 @@ public abstract class Fleet implements IFleet {
     public IStatistics getStatistics() {
         return this.statistics;
     }
-
-//    @Override
-//     /**
-//     * pick a service, set destination to the service pickup location, and status to "pickup"
-//     */
-
-//
-//        this.service.add(service);
-//        this.destination = service.getPickupLocation();
-//        this.route = setDrivingRouteToDestination(this.location, this.destination);
-//        this.status = VehicleStatus.PICKUP;
-//
-//    }
-
-    /**
-     * returns true if the status of the vehicle is "free" and false otherwise
+    /* 
+     * abstract classes --> implemented in the specific class 
      */
     public abstract boolean isFree();
 
     public abstract void bookService(IService service);
 
-    //    @Override
-//    /**
-//     * set destination to the service drop-off location, update the driving route,
-//     * set status to "service"
-//     */
-//    public void startService() {
-//         // need a method to get the current service -- since we made it an array list
-//        this.status = VehicleStatus.SERVICE;
-//        this.destination = this.getClosestService().getDropoffLocation();
-//        //used get pickuplocation() as start, could alternatively be this.location
-//        this.route = setDrivingRouteToDestination(this.location, this.destination);
-//    }
     public abstract void startService();
 
-    //    @Override
-//    /**
-//     * ending a service, resetting all the settings
-//     */
-//    public void endService() {
-//
-//        // update vehicle statistics
-//
-//        IService service = this.getClosestService();
-//
-//        this.statistics.updateBilling(this.calculateCost(service));
-//        this.statistics.updateDistance(service.calculateDistance());
-//        this.statistics.updateServices();
-//
-//        // if the service is rated by the user, update statistics
-//
-//        if (service.getStars() != 0) {
-//            this.statistics.updateStars(service.getStars());
-//            this.statistics.updateReviews();
-//        }
-//
-//
-//        // set service to null, and status to "free"
-//
-//        this.service.remove(service);
-//
-//        if (this.service.size() ==0){
-//            this.destination = ApplicationLibrary.randomLocation(this.location);
-//            this.status = VehicleStatus.FREE;
-//            this.route = setDrivingRouteToDestination(this.location, this.destination);
-//
-//
-//        }
-//        else{
-//            this.destination = this.getClosestService().getDropoffLocation();
-//            this.status = VehicleStatus.SERVICE;
-//            this.route = setDrivingRouteToDestination(this.location, this.destination);
-//
-//
-//    }
-//}
     public abstract void endService();
+
+    public abstract void move();
+    
+    public abstract IService getClosestService();
 
 
     @Override
@@ -203,52 +139,7 @@ public abstract class Fleet implements IFleet {
         return this.status;
     }
 
-    public abstract void move();
-
-//    @Override
-//    /**
-//     * gets the next location from the driving route
-//     */
-//    public void move() {
-//
-//        // to do --> fix this for two cars
-//
-//        this.location = this.route.get(0);
-//
-//        this.route.remove(0);
-//
-//
-//
-//        if (this.route.isEmpty()) {
-//            // check types here
-//            if (this.service.size() == 0) {
-//                // the vehicle continues its random route
-//
-//                this.destination = ApplicationLibrary.randomLocation(this.location);
-//                this.route = setDrivingRouteToDestination(this.location, this.destination);
-//
-//
-//            }
-//            else {
-//
-//                IService service = this.getClosestService();
-//                // checks if the vehicle has arrived to a pickup or drop off location
-//
-//                ILocation origin = service.getPickupLocation();
-//
-//                ILocation destination = service.getDropoffLocation();
-//
-//                if (this.location.getX() == origin.getX() && this.location.getY() == origin.getY()) {
-//
-//                    notifyArrivalAtPickupLocation();
-//
-//                } else if (this.location.getX() == destination.getX() && this.location.getY() == destination.getY()) {
-//
-//                    notifyArrivalAtDropoffLocation();
-//                }
-//            }
-//          }
-//        }
+    
 
     @Override
     /**
@@ -276,27 +167,6 @@ public abstract class Fleet implements IFleet {
 
         return s;
     }
-
-//    @Override
-//     /**
-//     * turns entire method to string --> changed this to incorporate the new rideshare
-//     */
-//    public String toString() {
-//
-//        if (this.service.size()==1){
-//            return this.id + " at " + this.location + " driving to " + this.destination +
-//            ((this.status == VehicleStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == VehicleStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service "));
-//
-//
-//        }
-//        else{
-//            return this.id + " at " + this.location + " driving to " + this.destination +
-//            ((this.status == VehicleStatus.FREE) ? " is free with path " + showDrivingRoute(this.route): ((this.status == VehicleStatus.PICKUP) ? " to pickup user " + this.getClosestService().getUser().getId() : " in service ")) + " shared ride with user" ;
-//
-//
-//
-//        }
-//    }
 
 
     /**
@@ -331,46 +201,19 @@ public abstract class Fleet implements IFleet {
         return route;
     }
 
+    /**
+     * get distance of the service from the pickup location of the user 
+     */
     @Override
     public int getDistanceFromPickUp(IService service) {
         return Math.abs(this.location.getX() - service.getPickupLocation().getX()) + Math.abs(this.location.getY() - service.getPickupLocation().getY());
     }
 
+    /**
+     * get distance from service from the dropoff location of the user
+     */
     @Override
     public int getDistanceFromDropoff(IService service) {
         return Math.abs(this.location.getX() - service.getDropoffLocation().getX()) + Math.abs(this.location.getY() - service.getDropoffLocation().getY());
     }
-
-//    @Override
-//    public IService getClosestService() {
-//        // returns the current and closest service that the vehicle is in (can be more than one)_
-//
-//        if (this.status == VehicleStatus.PICKUP){
-//            // return the most recently added service
-//            IService last_service = this.service.get(this.service.size() - 1);
-//            return last_service;
-//
-//        }
-//        else if (this.status == VehicleStatus.SERVICE){
-//
-//          IService service = null;
-//          int min = 1000000;
-//
-//          for (IService serv : this.service) {
-//
-//            if (this.getDistanceFromDropoff(serv)< min) {
-//              min = this.getDistanceFromDropoff(serv);
-//              service = serv;
-//            }
-//
-//          }
-//          return service;
-//        }
-//        return null;
-//
-//
-//      }
-
-
 }
-

@@ -25,5 +25,5 @@ public interface IStatistics {
     public void updateDistance(int distance);
 
     public void updateBilling(int billing);
-    // make sure to call update billing if the user accepts , as well as update reviews and update stars for each user 
+    
 }

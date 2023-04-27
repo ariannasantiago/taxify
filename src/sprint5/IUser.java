@@ -16,6 +16,7 @@ public interface IUser {
 
     public void setService(boolean service);
 
+     // NEW : added a getLocation() and move() method to the user class
     public ILocation getLocation();
 
     public void requestService();
@@ -26,6 +27,6 @@ public interface IUser {
 
     public String toString();
 
-    // NEW : added a getLocation() and move() method to the user class
+   
 
 }

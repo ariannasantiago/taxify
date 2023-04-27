@@ -40,10 +40,12 @@ public class ApplicationLibrary {
     }
     
     
+    // provides a random location
     public static ILocation randomLocation() {
         return new Location(rand(width), rand(height));
     }
     
+    // random location with parameters
     public static ILocation randomLocation(ILocation location) {
         ILocation destination;
         

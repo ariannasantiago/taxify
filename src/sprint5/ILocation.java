@@ -1,5 +1,9 @@
-package sprint5;// Interface Ilocation is implemented by sprint5.Location, provides the coordinates of the current string
+package sprint5;
 
+
+/**
+ * ILocation holds the x,y coordinates of a specified location: implemented by Location
+ */
 public interface ILocation {
 
     public int getX();

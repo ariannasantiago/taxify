@@ -1,20 +1,28 @@
 package sprint5;
 
 /**
- * class sprint5.Taxi extends abstract class sprint5.Vehicle
- * taxi specific information, including taxi specific cost (different from shuttle)
+ * micro vehicle Bike class --> extends micro 
  */
 public class Bike extends Micro {
 
+     /**
+     * constructor 
+     */
     public Bike(int id, ILocation location) {
         super(id, location);
     }
 
+    /**
+     * overridden calculate cost method
+     */
     @Override
     public int calculateCost(IService service) {
         return (super.calculateCost(service) / 2);
     }
 
+    /**
+     * overriden to string
+     */
     @Override
     public String toString() {
         return "Bike " + super.toString();

@@ -12,7 +12,6 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
     private List<IUser> users;
     private List<IFleet> vehicles;
 
-    //keep track of total users and vehicles 
     private int totalServices;
     private IObserver observer;
 
@@ -224,11 +223,6 @@ public class TaxiCompany implements ITaxiCompany, ISubject {
     public void arrivedAtDropoffLocation(IFleet vehicle) {
 
         IService service = vehicle.getClosestService();
-
-        // check which service to return
-
-
-        // fix this 
         int user = service.getUser().getId();
         int userIndex = indexOfUserId(user);
 

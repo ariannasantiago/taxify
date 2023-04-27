@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ *  Micro class extends abstract class fleet, implementing some of its own method bodies specific to the micro services 
+ */
 public class Micro extends Fleet {
 
     private List<IService> service;
@@ -17,10 +20,10 @@ public class Micro extends Fleet {
      */
     public Micro(int id, ILocation location) {
         super(id, location, location);
-        // initialize the array list (it could only contain one)
-        //this.status = MicroStatus.FREE;
+        
         this.status = FleetStatus.FREE;
         this.service = new ArrayList<IService>(1);
+        // initialize the service list so that it only allows one service 
     }
 
     /**
@@ -32,15 +35,24 @@ public class Micro extends Fleet {
     }
 
 
+     /**
+     * returns true if the vehicle is free
+     */
     @Override
     public boolean isFree() {
         return false;
     }
 
+     /**
+     * getter method: returns status
+     */
     public FleetStatus getStatus() {
         return this.status;
     }
 
+     /**
+     *book service
+     */
     @Override
     public void bookService(IService service) {
         this.service.add(service);
@@ -48,6 +60,9 @@ public class Micro extends Fleet {
 
     }
 
+     /**
+     * start service --> set status to inride 
+     */
     @Override
     public void startService() {
         this.status = FleetStatus.INRIDE;
@@ -58,6 +73,9 @@ public class Micro extends Fleet {
         this.route = setDrivingRouteToDestination(this.getLocation(), this.getDestination());
     }
 
+     /**
+     * end service and reset settings
+     */
     @Override
     public void endService() {
         // update vehicle statistics
@@ -113,6 +131,9 @@ public class Micro extends Fleet {
 
 
     @Override
+     /**
+     *to string method
+     */
     public String toString() {
         return (this.getId() + " at " + this.getLocation() +
                 ((this.status == FleetStatus.FREE) ? " is free"
@@ -120,6 +141,10 @@ public class Micro extends Fleet {
                         : " is booked"));
     }
 
+     /**
+     * returns closest service --> returning null if there are only free vehicles
+     */
+    @Override
     public IService getClosestService() {
         if (this.service.size() == 0 || this.getStatus() == FleetStatus.FREE)
             return null;

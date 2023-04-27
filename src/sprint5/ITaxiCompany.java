@@ -1,7 +1,7 @@
 package sprint5;
 
 /**
- * sprint5.Taxi company as a whole
+ * sprint5.Taxi company as a whole --> implemented by TaxiCompany to run the program
  */
 
 public interface ITaxiCompany {
@@ -18,7 +18,3 @@ public interface ITaxiCompany {
 
 
 }
-
-// more methods will be declared in upcoming sprints
-
-
